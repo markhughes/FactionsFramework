@@ -15,7 +15,7 @@ public abstract class Messenger {
 			if (key == null) {
 				key = allocation;
 			} else {
-				msg.replaceAll("{" + key + "}" , allocation);
+				msg = msg.replaceAll("\\{" + key + "\\}" , allocation);
 				key = null;
 			}
 		}
