@@ -146,6 +146,10 @@ public abstract class FactionsCommand extends Messenger {
 		this.run();
 	}
 	
+	public final List<String> getArgs() {
+		return this.args;
+	}
+	
 	public final String getArg(int index) {
 		if (this.args.size() < index+1) return null;
 		
@@ -170,6 +174,23 @@ public abstract class FactionsCommand extends Messenger {
 	
 	public final void msg(String msg) {
 		this.fplayer.msg(msg);
+	}
+	
+	public final String getArgsConcated(int fromIndex) {
+		int at = 0;
+		
+		StringBuilder sb = new StringBuilder();
+		
+		for (String arg : this.getArgs()) {
+			if (at >= fromIndex) {
+				if (sb.length() > 0) sb.append(" ");
+				
+				sb.append(arg);
+			}
+			at++;
+		}
+		
+		return sb.toString();
 	}
 		
 	// -------------------------------------------------- //
