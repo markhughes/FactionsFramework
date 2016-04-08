@@ -107,5 +107,10 @@ public class FPlayer_2_8_6 extends Messenger implements FPlayer {
 		
 		return this.mplayer.isOnline();
 	}
+
+	@Override
+	public Rel getRank() {
+		return Factions_2_8_6.convertRelationship(this.mplayer.getRole());
+	}
 	
 }

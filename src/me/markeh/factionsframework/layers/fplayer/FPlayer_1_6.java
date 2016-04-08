@@ -5,6 +5,7 @@ import org.bukkit.entity.Player;
 
 import com.massivecraft.factions.iface.RelationParticipator;
 import com.massivecraft.factions.struct.Relation;
+import com.massivecraft.factions.struct.Role;
 
 import me.markeh.factionsframework.Util;
 import me.markeh.factionsframework.entities.FPlayer;
@@ -106,6 +107,16 @@ public class FPlayer_1_6 extends Messenger implements FPlayer {
 		if (this.id == "@console") return true;
 		
 		return this.factionsfplayer.isOnline();
+	}
+
+	@Override
+	public Rel getRank() {
+		Role role = this.factionsfplayer.getRole();
+		
+		if (role == Role.ADMIN) return Rel.LEADER;
+		if (role == Role.MODERATOR) return Rel.OFFICER;
+		
+		return Rel.MEMBER;
 	}
 	
 }

@@ -24,4 +24,6 @@ public interface FPlayer {
 	
 	public Boolean isOnline();
 	
+	public Rel getRank();
+	
 }
