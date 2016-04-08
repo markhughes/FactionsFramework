@@ -1,9 +1,12 @@
 package me.markeh.factionsframework.layers.commandmanager;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.massivecraft.factions.Conf;
 import com.massivecraft.factions.P;
+import com.massivecraft.factions.integration.Econ;
 
 import me.markeh.factionsframework.command.FactionsCommand;
 import me.markeh.factionsframework.command.FactionsCommandManager;
@@ -32,6 +35,8 @@ public class CommandManager_1_6 extends FactionsCommandManager {
 		
 		// Add it to Factions 
 		P.p.cmdBase.addSubCommand(originalCommand);
+		
+		//this.updateHelp();
 	}
 
 	@Override
@@ -44,12 +49,62 @@ public class CommandManager_1_6 extends FactionsCommandManager {
 		
 		// Remove it from out map
 		this.cmdMap.remove(command);
+		
+		//this.updateHelp();
 	}
 
 	@Override
 	public void removeAll() {
 		for (FactionsCommand command : this.cmdMap.keySet()) {
 			this.remove(command);
+		}
+	}
+	
+	private ArrayList<ArrayList<String>> pagesBackup = null;
+	
+	public void updateHelp() {
+		if ( ! P.p.getConfig().getBoolean("use-old-help", true)) return;
+		
+		if (pagesBackup == null) {
+			if (P.p.cmdBase.cmdHelp.helpPages == null) {
+				P.p.cmdBase.cmdHelp.updateHelp();
+			}
+			
+			pagesBackup = new ArrayList<ArrayList<String>>(P.p.cmdBase.cmdHelp.helpPages);
+		}
+		
+		P.p.cmdBase.cmdHelp.helpPages.clear();
+		
+		int pageOverride = 6;
+		if (Econ.isSetup() && Conf.econEnabled && Conf.bankEnabled) pageOverride++;
+		
+		int page = 1;
+		for (ArrayList<String> lines : pagesBackup) {
+			// Pages 6 is where the info blocks start, so we'll inject
+			// into the help before that
+			if (page == pageOverride) {
+				ArrayList<String> newLines = new ArrayList<String>();
+				newLines.add("FactionsFramework!");
+				
+				for (Command_1_6 command : this.cmdMap.values()) {
+					newLines.add(command.getUseageTemplate(true));
+					
+					if (newLines.size() >= 6) {
+						P.p.cmdBase.cmdHelp.helpPages.add(newLines);
+						newLines.clear();
+					}
+				}
+				
+				if ( ! newLines.isEmpty()) {
+					P.p.cmdBase.cmdHelp.helpPages.add(newLines);
+					newLines.clear();
+				}
+				
+			} 
+			
+			// Add back the old page 
+			P.p.cmdBase.cmdHelp.helpPages.add(lines);
+			page++;
 		}
 	}
 

@@ -31,15 +31,7 @@ public class Command_1_6 extends FCommand implements CommandBase {
 		
 		this.permission = command.getPermission();
 		
-		try {
-			// Start Reflection 
-
-			this.getClass().getMethod("setHelpShort", String.class).invoke(this, this.command.getDescription());
-			
-			// End Reflection 
-		} catch (Exception e) {
-			FactionsFramework.get().logError(e);
-		}
+		this.setHelpShort(this.command.getDescription());
 	}
 	
 	// -------------------------------------------------- //
