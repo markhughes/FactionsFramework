@@ -1,5 +1,6 @@
 package me.markeh.factionsframework.layers.faction;
 
+import java.util.ArrayList;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -64,6 +65,24 @@ public class Faction_1_6_UUID extends Messenger implements Faction {
 		
 		return members;
 	}
+	
+	@Override
+	public Set<FPlayer> getMembersExcept(Rel... rels) {
+		Set<FPlayer> members = new TreeSet<FPlayer>();
+		
+		ArrayList<Rel> relsList = new ArrayList<Rel>();
+		for (Rel rel : rels) relsList.add(rel);
+		
+		for (com.massivecraft.factions.FPlayer oplayer : this.faction.getFPlayers()) {
+			FPlayer fplayer = FPlayers.getById(oplayer.getId());
+			
+			if (relsList.contains(fplayer.getRank())) members.add(fplayer);
+		}
+		
+		return members;
+
+	}
+
 
 	@Override
 	public Set<FPlayer> getOfficers() {

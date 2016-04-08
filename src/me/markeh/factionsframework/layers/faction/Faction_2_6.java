@@ -1,5 +1,6 @@
 package me.markeh.factionsframework.layers.faction;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -73,6 +74,23 @@ public class Faction_2_6 extends Messenger implements Faction {
 		
 		return members;
 	}
+	
+	@Override
+	public Set<FPlayer> getMembersExcept(Rel... rels) {
+		Set<FPlayer> members = new TreeSet<FPlayer>();
+		
+		ArrayList<Rel> relsList = new ArrayList<Rel>();
+		for (Rel rel : rels) relsList.add(rel);
+		
+		for (UPlayer uplayer : this.getUPlayers()) {
+			FPlayer fplayer = FPlayers.getById(uplayer.getId());
+			
+			if (relsList.contains(fplayer.getRank())) members.add(fplayer);
+		}
+		
+		return members;
+	}
+
 
 	@Override
 	public Set<FPlayer> getOfficers() {

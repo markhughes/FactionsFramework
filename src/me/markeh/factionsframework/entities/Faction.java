@@ -18,6 +18,8 @@ public interface Faction {
 	
 	public Set<FPlayer> getOfficers();
 	
+	public Set<FPlayer> getMembersExcept(Rel... rels);
+	
 	public FPlayer getLeader();
 	
 	public Location getHome();
