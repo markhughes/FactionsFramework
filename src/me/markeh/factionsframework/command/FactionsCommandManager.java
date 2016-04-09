@@ -1,5 +1,7 @@
 package me.markeh.factionsframework.command;
 
+import org.bukkit.command.CommandSender;
+
 import me.markeh.factionsframework.enums.FactionsVersion;
 import me.markeh.factionsframework.layers.commandmanager.CommandManager_1_6;
 import me.markeh.factionsframework.layers.commandmanager.CommandManager_2_6;
@@ -44,5 +46,6 @@ public abstract class FactionsCommandManager {
 	public abstract void add(FactionsCommand command);
 	public abstract void remove(FactionsCommand command);
 	public abstract void removeAll();
+	public abstract void showHelpFor(FactionsCommand command, CommandSender sender);
 
 }

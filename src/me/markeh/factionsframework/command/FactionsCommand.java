@@ -29,6 +29,7 @@ public abstract class FactionsCommand extends Messenger {
 	private String description = "";
 	private String permission = null;
 	private List<Requirement> requirements = new ArrayList<Requirement>();
+	private List<FactionsCommand> subCommands = new ArrayList<FactionsCommand>();
 	
 	// -------------------------------------------------- //
 	// METHODS 
@@ -192,11 +193,26 @@ public abstract class FactionsCommand extends Messenger {
 		
 		return sb.toString();
 	}
+	
+	public final void addSubCommand(FactionsCommand command) {
+		if (subCommands.contains(command)) return;
+		subCommands.add(command);
+	}
+	
+	public final List<FactionsCommand> getSubCommands() {
+		return new ArrayList<FactionsCommand>(subCommands);
+	}
+	
+	public final void removeSubCommand(FactionsCommand command) {
+		this.subCommands.remove(command);
+	}
 		
 	// -------------------------------------------------- //
-	// ABSTRACT METHODS 
+	// OPTIONAL METHODS 
 	// -------------------------------------------------- //
 	
-	public abstract void run() throws Exception;
+	public void run() throws Exception {
+		FactionsCommandManager.get().showHelpFor(this, this.getSender());
+	}
 	
 }

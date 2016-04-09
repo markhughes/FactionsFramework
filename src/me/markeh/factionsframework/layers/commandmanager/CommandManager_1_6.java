@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.bukkit.command.CommandSender;
+
 import com.massivecraft.factions.Conf;
 import com.massivecraft.factions.P;
 import com.massivecraft.factions.integration.Econ;
@@ -60,6 +62,11 @@ public class CommandManager_1_6 extends FactionsCommandManager {
 		}
 	}
 	
+	@Override
+	public void showHelpFor(FactionsCommand command, CommandSender sender) {
+		P.p.cmdAutoHelp.execute(sender, command.getArgs(), cmdMap.get(command).commandChain);		
+	}
+	
 	private ArrayList<ArrayList<String>> pagesBackup = null;
 	
 	public void updateHelp() {
@@ -107,5 +114,5 @@ public class CommandManager_1_6 extends FactionsCommandManager {
 			page++;
 		}
 	}
-
+	
 }

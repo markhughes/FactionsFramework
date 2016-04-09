@@ -5,7 +5,10 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.bukkit.command.CommandSender;
+
 import com.massivecraft.factions.Factions;
+import com.massivecraft.massivecore.command.HelpCommand;
 import com.massivecraft.massivecore.command.MassiveCommand;
 
 import me.markeh.factionsframework.FactionsFramework;
@@ -69,6 +72,13 @@ public class CommandManager_2_8_6 extends FactionsCommandManager {
 		}		
 	}
 	
+	@Override
+	public void showHelpFor(FactionsCommand command, CommandSender sender) {
+		// TODO: in the future this changes to MassiveCommandHelp:
+		//  https://github.com/MassiveCraft/MassiveCore/blob/master/src/com/massivecraft/massivecore/command/MassiveCommandHelp.java
+		HelpCommand.get().execute(sender, command.getArgs(), this.cmdMap.get(command).getChain());
+	}
+	
 	// -------------------------------------------------- //
 	// UTILS
 	// -------------------------------------------------- //
@@ -93,5 +103,5 @@ public class CommandManager_2_8_6 extends FactionsCommandManager {
 		
 		return this.cmdFactionsInstance;
 	}
-
+	
 }

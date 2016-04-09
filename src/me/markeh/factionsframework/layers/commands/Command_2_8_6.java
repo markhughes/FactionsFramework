@@ -77,6 +77,13 @@ public class Command_2_8_6 extends com.massivecraft.factions.cmd.FactionsCommand
 			this.overflowSensitive = ! command.overflowAllowed();			
 		}
 		
+		if (command.getSubCommands().size() > 0) {
+			for (FactionsCommand subCommand : command.getSubCommands()) {
+				this.addChild(new Command_2_8_6(subCommand));
+			}
+		}
+		
+		this.chain.add(this);
 	}
 	
 	// ---------------------------------------- //

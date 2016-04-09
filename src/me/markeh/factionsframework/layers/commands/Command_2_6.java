@@ -25,6 +25,15 @@ public class Command_2_6 extends FCommand implements CommandBase {
 		this.errorOnToManyArgs = ! command.overflowAllowed();
 		
 		this.permission = command.getPermission();
+		
+		if (command.getSubCommands().size() > 0) {
+			for (FactionsCommand subCommand : command.getSubCommands()) {
+				this.subCommands.add(new Command_2_6(subCommand));
+			}
+		}
+		
+		this.commandChain.add(this);
+
 	}
 
 	// -------------------------------------------------- //
@@ -56,6 +65,10 @@ public class Command_2_6 extends FCommand implements CommandBase {
 	// FactionsUUID specific, is required for compiling with 1.6 - but useless
 	public TL getUsageTranslation() {
 		return null;
+	}
+	
+	public Object getCommandChain() {
+		return this.commandChain;
 	}
 
 }

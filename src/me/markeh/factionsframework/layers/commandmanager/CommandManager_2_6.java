@@ -1,10 +1,16 @@
 package me.markeh.factionsframework.layers.commandmanager;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import org.bukkit.command.CommandSender;
+
 import com.massivecraft.factions.Factions;
+import com.massivecraft.massivecore.cmd.HelpCommand;
+import com.massivecraft.massivecore.cmd.MassiveCommand;
 
 import me.markeh.factionsframework.FactionsFramework;
 import me.markeh.factionsframework.command.FactionsCommand;
@@ -56,6 +62,17 @@ public class CommandManager_2_6 extends FactionsCommandManager {
 	public void removeAll() {
 		for (FactionsCommand command : this.cmdMap.keySet()) {
 			this.remove(command);		
+		}
+	}
+	
+	@Override
+	public void showHelpFor(FactionsCommand command, CommandSender sender) {
+		try {
+			Method executeCommand = HelpCommand.get().getClass().getMethod("execute", CommandSender.class, List.class, MassiveCommand.class);
+	
+			executeCommand.invoke(HelpCommand.get().getClass(), sender, command.getArgs(), this.cmdMap.get(command).getCommandChain());
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 

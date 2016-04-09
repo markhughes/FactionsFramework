@@ -3,7 +3,10 @@ package me.markeh.factionsframework.layers.commandmanager;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.bukkit.command.CommandSender;
+
 import com.massivecraft.factions.cmd.CmdFactions;
+import com.massivecraft.massivecore.command.HelpCommand;
 import com.massivecraft.massivecore.command.MassiveCommand;
 
 import me.markeh.factionsframework.command.FactionsCommand;
@@ -47,6 +50,11 @@ public class CommandManager_2_8_7 extends FactionsCommandManager {
 		for (FactionsCommand command : this.cmdMap.keySet()) {
 			this.remove(command);
 		}		
+	}
+
+	@Override
+	public void showHelpFor(FactionsCommand command, CommandSender sender) {
+		HelpCommand.get().execute(sender, command.getArgs(), this.cmdMap.get(command).getChain());		
 	}
 
 }
