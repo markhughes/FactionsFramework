@@ -1,5 +1,7 @@
 package me.markeh.factionsframework;
 
+import java.io.IOException;
+
 import org.bukkit.ChatColor;
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -68,6 +70,12 @@ public class FactionsFramework extends JavaPlugin {
 	
 		// Enable events
 		this.getServer().getPluginManager().registerEvents(EventsLayer.get(), this);
+		
+		try {
+			new Metrics(this).enable();
+		} catch (IOException e) {
+			this.logError(e);
+		}
 	}
 	
 	// -------------------------------------------------- //
