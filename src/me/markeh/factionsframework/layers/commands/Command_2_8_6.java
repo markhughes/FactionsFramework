@@ -83,7 +83,7 @@ public class Command_2_8_6 extends com.massivecraft.factions.cmd.FactionsCommand
 			}
 		}
 		
-		this.chain.add(this);
+		this.addToChain(this);
 	}
 	
 	// ---------------------------------------- //

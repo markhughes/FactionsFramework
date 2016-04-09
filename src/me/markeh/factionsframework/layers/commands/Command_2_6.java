@@ -33,7 +33,6 @@ public class Command_2_6 extends FCommand implements CommandBase {
 		}
 		
 		this.commandChain.add(this);
-
 	}
 
 	// -------------------------------------------------- //
