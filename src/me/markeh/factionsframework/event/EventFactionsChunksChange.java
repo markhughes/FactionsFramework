@@ -3,6 +3,7 @@ package me.markeh.factionsframework.event;
 import java.util.Set;
 
 import org.bukkit.Chunk;
+import org.bukkit.event.HandlerList;
 
 import me.markeh.factionsframework.entities.FPlayer;
 import me.markeh.factionsframework.entities.Faction;
@@ -45,6 +46,20 @@ public class EventFactionsChunksChange extends BaseEventFactions<EventFactionsCh
 	
 	public final void setChunks(Set<Chunk> chunks) {
 		this.chunks = chunks;
+	}
+	
+	// -------------------------------------------------- //
+	// HANDLERLIST
+	// -------------------------------------------------- //
+	
+	private static final HandlerList handlers = new HandlerList();
+
+	public HandlerList getHandlers() {
+	    return handlers;
+	}
+
+	public static HandlerList getHandlerList() {
+	    return handlers;
 	}
 	
 }

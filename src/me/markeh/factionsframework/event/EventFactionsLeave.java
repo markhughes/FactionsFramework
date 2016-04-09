@@ -1,5 +1,7 @@
 package me.markeh.factionsframework.event;
 
+import org.bukkit.event.HandlerList;
+
 import me.markeh.factionsframework.entities.FPlayer;
 import me.markeh.factionsframework.entities.Faction;
 import me.markeh.factionsframework.enums.LeaveReason;
@@ -44,6 +46,20 @@ public class EventFactionsLeave extends BaseEventFactions<EventFactionsLeave> {
 	
 	public final Boolean canCancel() {
 		return this.isCancellable;
+	}
+	
+	// -------------------------------------------------- //
+	// HANDLERLIST
+	// -------------------------------------------------- //
+	
+	private static final HandlerList handlers = new HandlerList();
+
+	public HandlerList getHandlers() {
+	    return handlers;
+	}
+
+	public static HandlerList getHandlerList() {
+	    return handlers;
 	}
 	
 }

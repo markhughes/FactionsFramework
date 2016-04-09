@@ -2,7 +2,6 @@ package me.markeh.factionsframework.event;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.Event;
-import org.bukkit.event.HandlerList;
 
 public abstract class BaseEventFactions<T extends BaseEventFactions<T>> extends Event {
 		
@@ -11,7 +10,6 @@ public abstract class BaseEventFactions<T extends BaseEventFactions<T>> extends 
 	// -------------------------------------------------- //
 	
 	private Boolean cancelled = false;
-	private HandlerList handlers = new HandlerList();
 	
 	// -------------------------------------------------- //
 	// METHODS
@@ -30,13 +28,5 @@ public abstract class BaseEventFactions<T extends BaseEventFactions<T>> extends 
 	public final void setCancelled(Boolean cancelled) {
 		this.cancelled = cancelled;
 	}
-	
-	public final HandlerList getHandlers() {
-		return this.handlers;
-	}
-
-	public final HandlerList getHandlerList() {
-		return this.handlers;
-	}
-	
+		
 }

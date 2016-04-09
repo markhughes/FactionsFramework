@@ -1,5 +1,7 @@
 package me.markeh.factionsframework.event;
 
+import org.bukkit.event.HandlerList;
+
 import me.markeh.factionsframework.entities.FPlayer;
 
 public class EventFactionsCreate extends BaseEventFactions<EventFactionsCreate> {
@@ -36,6 +38,20 @@ public class EventFactionsCreate extends BaseEventFactions<EventFactionsCreate> 
 	
 	public final FPlayer getFPlayer() {
 		return this.fplayer;
+	}
+	
+	// -------------------------------------------------- //
+	// HANDLERLIST
+	// -------------------------------------------------- //
+	
+	private static final HandlerList handlers = new HandlerList();
+
+	public HandlerList getHandlers() {
+	    return handlers;
+	}
+
+	public static HandlerList getHandlerList() {
+	    return handlers;
 	}
 	
 }
