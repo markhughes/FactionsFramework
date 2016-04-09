@@ -68,6 +68,13 @@ public abstract class FactionsCommand extends Messenger {
 		this.aliases.add(alias);
 	}
 	
+	public final void addAlias(String... aliases) {
+		for (String alias: aliases) {
+			this.aliases.add(alias);
+		}
+	}
+	
+	
 	/**
 	 * Fetches the required arguments for this command. 
 	 *
