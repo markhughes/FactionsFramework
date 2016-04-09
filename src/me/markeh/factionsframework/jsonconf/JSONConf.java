@@ -8,6 +8,15 @@ import java.nio.file.Path;
 
 import me.markeh.factionsframework.FactionsFramework;
 
+/**
+ * This a simple free to use class for creating easy JSON config files
+ * it uses Gson. To ignore a field, add transient keyword. I suggest
+ * doing this for static getter fields as well. 
+ * 
+ * This still follows the same 6 months deprecation policy, so it is
+ * safe to use.
+ * 
+ */
 public abstract class JSONConf<T extends JSONConf<T>> {
 	
 	// Convert the class to a string, required to POJO
