@@ -94,7 +94,7 @@ public class FPlayer_2_8_6 extends Messenger implements FPlayer {
 	@Override
 	public void msg(String msg) {
 		if (this.id == "@console") {
-			Bukkit.getConsoleSender().sendMessage(msg);
+			Bukkit.getConsoleSender().sendMessage(Util.colourse(msg));
 			return;
 		}
 		
