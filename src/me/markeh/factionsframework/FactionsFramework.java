@@ -1,3 +1,24 @@
+/**
+ * Factions Framework-  Way too much caffeine was required to make this.
+ * Copyright (C) 2016  Mark Hughes ("MarkehMe") <m@rkhugh.es>
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * 
+ * https://github.com/MarkehMe/FactionsFramework
+ *
+ */
+
 package me.markeh.factionsframework;
 
 import java.io.IOException;
@@ -18,24 +39,8 @@ import me.markeh.factionsframework.layers.factions.*;
 import me.markeh.factionsframework.layers.fplayers.*;
 
 /**
- * Factions Framework-  Way too much caffeine was required to make this.
- * Copyright (C) 2016  Mark Hughes ("MarkehMe") <m@rkhugh.es>
- * 
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- * 
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- * 
- * https://github.com/MarkehMe/FactionsFramework
- *
+ * Factions Framework has a 6 month deprecation policy.
+ * See me.markeh.factionsframework.deprecation.Deprecation for information.
  */
 public class FactionsFramework extends JavaPlugin {
 	
@@ -67,7 +72,7 @@ public class FactionsFramework extends JavaPlugin {
 		
 		// Initialise ConfLayer early 
 		ConfLayer.get();
-	
+		
 		// Enable events
 		this.getServer().getPluginManager().registerEvents(EventsLayer.get(), this);
 		
@@ -76,6 +81,8 @@ public class FactionsFramework extends JavaPlugin {
 		} catch (IOException e) {
 			this.logError(e);
 		}
+		
+		log("Factions version is: " + FactionsVersion.get().toString());
 	}
 	
 	// -------------------------------------------------- //
@@ -156,7 +163,7 @@ public class FactionsFramework extends JavaPlugin {
 	}
 	
 	public final void log(String...msgs) {
-		for (String msg : msgs) this.getServer().getConsoleSender().sendMessage(ChatColor.WHITE + "[FactionsFramework] " + msg);
+		for (String msg : msgs) this.getServer().getConsoleSender().sendMessage(ChatColor.DARK_AQUA + "[" + ChatColor.AQUA + "FactionsFramework" + ChatColor.DARK_AQUA + "] " + ChatColor.WHITE + msg);
 	}
 	
 	public final Gson getGson() {
