@@ -1,6 +1,7 @@
 package me.markeh.factionsframework.layers.commandmanager;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 
 import org.bukkit.command.CommandSender;
@@ -47,7 +48,7 @@ public class CommandManager_2_8_7 extends FactionsCommandManager {
 
 	@Override
 	public void removeAll() {
-		for (FactionsCommand command : this.cmdMap.keySet()) {
+		for (FactionsCommand command : new HashSet<FactionsCommand>(this.cmdMap.keySet())) {
 			this.remove(command);
 		}		
 	}
