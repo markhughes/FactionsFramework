@@ -68,9 +68,15 @@ public class Command_1_6 extends FCommand implements CommandBase {
 		}
 	}
 	
+	@Override
+	public FactionsCommand getAsFactionsCommand() {
+		return this.command;
+	}
+	
 	// FactionsUUID specific, is required - but useless
 	public TL getUsageTranslation() {
 		return null;
 	}
+
 
 }

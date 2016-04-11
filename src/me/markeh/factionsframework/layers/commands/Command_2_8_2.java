@@ -10,7 +10,7 @@ import me.markeh.factionsframework.command.FactionsCommand;
 import me.markeh.factionsframework.command.FactionsCommandInformation;
 import me.markeh.factionsframework.entities.FPlayers;
 
-public class Command_2_8_2 extends com.massivecraft.factions.cmd.FactionsCommand {
+public class Command_2_8_2 extends com.massivecraft.factions.cmd.FactionsCommand implements CommandBase {
 	
 	// ---------------------------------------- //
 	// FIELDS
@@ -73,6 +73,11 @@ public class Command_2_8_2 extends com.massivecraft.factions.cmd.FactionsCommand
 		} catch (Exception e) {
 			FactionsFramework.get().logError(e);
 		}
+	}
+	
+	@Override
+	public FactionsCommand getAsFactionsCommand() {
+		return this.command;
 	}
 	
 }

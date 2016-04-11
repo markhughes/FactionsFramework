@@ -61,6 +61,11 @@ public class Command_2_6 extends FCommand implements CommandBase {
 		}		
 	}
 	
+	@Override
+	public FactionsCommand getAsFactionsCommand() {
+		return this.command;
+	}
+	
 	// FactionsUUID specific, is required for compiling with 1.6 - but useless
 	public TL getUsageTranslation() {
 		return null;

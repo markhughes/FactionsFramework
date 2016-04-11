@@ -73,4 +73,9 @@ public class Command_2_8_6 extends com.massivecraft.factions.cmd.FactionsCommand
 		}
 	}
 	
+	@Override
+	public FactionsCommand getAsFactionsCommand() {
+		return this.command;
+	}
+	
 }

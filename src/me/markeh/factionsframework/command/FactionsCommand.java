@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 import me.markeh.factionsframework.command.requirements.Requirement;
 import me.markeh.factionsframework.entities.FPlayer;
@@ -152,6 +153,14 @@ public abstract class FactionsCommand extends Messenger {
 		}
 		
 		this.run();
+	}
+	
+	public final String getUniverse() {
+		return this.fplayer.getUniverse();
+	}
+	
+	public final Boolean isPlayer() {
+		return (this.sender instanceof Player);
 	}
 	
 	public final List<String> getArgs() {
