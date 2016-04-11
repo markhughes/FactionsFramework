@@ -122,6 +122,7 @@ public class FactionsFramework extends JavaPlugin {
 				case Factions_2_6 :
 					this.factionsInstance = new Factions_2_6();
 					break;
+				case Factions_2_8_2 :
 				case Factions_2_8_6 :
 					this.factionsInstance = new Factions_2_8_6();
 					break;
@@ -147,6 +148,7 @@ public class FactionsFramework extends JavaPlugin {
 				case Factions_2_6 :
 					this.fplayersInstance = new FPlayers_2_6();
 					break;
+				case Factions_2_8_2 :
 				case Factions_2_8_6 :
 					this.fplayersInstance = new FPlayers_2_8_6();
 					break;

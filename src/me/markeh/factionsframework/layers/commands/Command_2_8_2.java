@@ -1,5 +1,6 @@
 package me.markeh.factionsframework.layers.commands;
 
+import java.lang.reflect.Method;
 import java.util.Map.Entry;
 
 import com.massivecraft.massivecore.MassiveException;
@@ -9,48 +10,49 @@ import me.markeh.factionsframework.command.FactionsCommand;
 import me.markeh.factionsframework.command.FactionsCommandInformation;
 import me.markeh.factionsframework.entities.FPlayers;
 
-public class Command_2_8_6 extends com.massivecraft.factions.cmd.FactionsCommand implements CommandBase {
-
+public class Command_2_8_2 extends com.massivecraft.factions.cmd.FactionsCommand {
+	
 	// ---------------------------------------- //
 	// FIELDS
 	// ---------------------------------------- //
-
+	
 	private FactionsCommand command;
 	
 	// ---------------------------------------- //
 	// CONSTRUCTOR
 	// ---------------------------------------- //
 	
-	public Command_2_8_6(FactionsCommand command) {
+	public Command_2_8_2(FactionsCommand command) {
+		FactionsFramework.get().log("Construct yay");
 		this.command = command;
 		
 		this.aliases.addAll(command.getAliases());
 		this.setDesc(command.getDescription());
+		
+		try {
+			Class<?> ARString = Class.forName("com.massivecraft.massivecore.cmd.arg.ARString");
+			Method addArg = this.getClass().getMethod("addArg", ARString, String.class);
 			
-		try { 
-			// Register the required arguments
+			// Register the required arguments 
 			for (String reqArg : command.getRequiredArguments()) {
-				this.addParameter(com.massivecraft.massivecore.command.type.primitive.TypeString.get(), reqArg);
+				addArg.invoke(this, ARString.getMethod("get").invoke(this), reqArg);
 			}
 			
-			// Register the optional arguments
+			// Register all the optional arguments
 			for (Entry<String, String> arg : command.getOptionalArguments().entrySet()) {
-				this.addParameter(com.massivecraft.massivecore.command.type.primitive.TypeString.get(), arg.getKey(), arg.getValue());
+				addArg.invoke(this, ARString.getMethod("get").invoke(this), arg.getKey(), arg.getKey());
 			}
 			
+			this.getClass().getMethod("setGivingErrorOnTooManyArgs", Boolean.class).invoke(this, ! this.command.overflowAllowed());
 		} catch (Exception e) {
 			FactionsFramework.get().logError(e);
 		}
 		
-		this.overflowSensitive = ! command.overflowAllowed();			
-		
-		
 		if (command.getSubCommands().size() > 0) {
 			for (FactionsCommand subCommand : command.getSubCommands()) {
-				this.addChild(new Command_2_8_6(subCommand));
+				this.addChild(new Command_2_8_2(subCommand));
 			}
 		}
-		
 	}
 	
 	// ---------------------------------------- //

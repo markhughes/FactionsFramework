@@ -5,6 +5,7 @@ import org.bukkit.command.CommandSender;
 import me.markeh.factionsframework.enums.FactionsVersion;
 import me.markeh.factionsframework.layers.commandmanager.CommandManager_1_6;
 import me.markeh.factionsframework.layers.commandmanager.CommandManager_2_6;
+import me.markeh.factionsframework.layers.commandmanager.CommandManager_2_8_2;
 import me.markeh.factionsframework.layers.commandmanager.CommandManager_2_8_6;
 import me.markeh.factionsframework.layers.commandmanager.CommandManager_2_8_7;
 
@@ -23,6 +24,9 @@ public abstract class FactionsCommandManager {
 					break;
 				case Factions_2_6 :
 					instance = new CommandManager_2_6();
+					break;
+				case Factions_2_8_2 :
+					instance = new CommandManager_2_8_2();
 					break;
 				case Factions_2_8_6 :
 					instance = new CommandManager_2_8_6();

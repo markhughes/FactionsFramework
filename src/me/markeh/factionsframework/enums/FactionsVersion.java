@@ -7,6 +7,7 @@ public enum FactionsVersion {
 	
 	Factions_1_6,
 	Factions_2_6,
+	Factions_2_8_2,
 	Factions_2_8_6,
 	Factions_2_8_7,
 	
@@ -41,6 +42,13 @@ public enum FactionsVersion {
 			try {
 				// Factions Versions <= 2.8.6 has Spigot integration in an older spot 
 				Class.forName("com.massivecraft.factions.spigot.SpigotFeatures");
+				
+				try {
+					Class.forName("com.massivecraft.massivecore.cmd.arg.ARString");
+					// Only different between 2.8.2 and 2.8.6 is command versioning
+					return Factions_2_8_2;
+				} catch (Exception e) { }
+				
 				return Factions_2_8_6;
 			} catch (Exception e) { }
 			

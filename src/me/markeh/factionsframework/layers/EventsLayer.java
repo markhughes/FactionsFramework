@@ -29,6 +29,7 @@ public abstract class EventsLayer implements Listener {
 				case Factions_2_6 :
 					layer = new Events_2_6();
 					break;
+				case Factions_2_8_2 :
 				case Factions_2_8_6 :
 					layer = new Events_2_8_6();
 					break;
