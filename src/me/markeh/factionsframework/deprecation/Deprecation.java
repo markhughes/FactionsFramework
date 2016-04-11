@@ -88,7 +88,7 @@ public class Deprecation {
 		sb.append("Has been deprecated and will be removed soon. Ask the plugin developer to update.");
 		
 		Bukkit.getConsoleSender().sendMessage(sb.toString());
-		Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "This is NOT an issue with FactionsFramework but with a plugin created by FactionsFramework.");
+		Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "This is NOT an issue with FactionsFramework but with a plugin created using FactionsFramework.");
 		
 	}
 	
