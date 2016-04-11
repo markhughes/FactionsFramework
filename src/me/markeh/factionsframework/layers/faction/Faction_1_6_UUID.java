@@ -76,7 +76,7 @@ public class Faction_1_6_UUID extends Messenger implements Faction {
 		for (com.massivecraft.factions.FPlayer oplayer : this.faction.getFPlayers()) {
 			FPlayer fplayer = FPlayers.getById(oplayer.getId());
 			
-			if (relsList.contains(fplayer.getRank())) members.add(fplayer);
+			if (relsList.contains(fplayer.getRole())) members.add(fplayer);
 		}
 		
 		return members;

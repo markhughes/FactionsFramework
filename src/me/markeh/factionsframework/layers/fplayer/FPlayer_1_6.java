@@ -1,6 +1,10 @@
 package me.markeh.factionsframework.layers.fplayer;
 
+import java.util.Collection;
+
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.entity.Player;
 
 import com.massivecraft.factions.iface.RelationParticipator;
@@ -110,13 +114,81 @@ public class FPlayer_1_6 extends Messenger implements FPlayer {
 	}
 
 	@Override
-	public Rel getRank() {
+	public Rel getRole() {
 		Role role = this.factionsfplayer.getRole();
 		
 		if (role == Role.ADMIN) return Rel.LEADER;
 		if (role == Role.MODERATOR) return Rel.OFFICER;
 		
 		return Rel.MEMBER;
+	}
+
+	@Override
+	public void setRole(Rel role) {
+		if (role == Rel.LEADER) {
+			this.factionsfplayer.setRole(Role.ADMIN);
+			return;
+		}
+		
+		if (role == Rel.OFFICER) {
+			this.factionsfplayer.setRole(Role.MODERATOR);
+			return;
+		}
+		
+		this.factionsfplayer.setRole(Role.NORMAL);		
+	}
+
+	@Override
+	public Location getLocation() {
+		return this.factionsfplayer.getPlayer().getLocation();
+	}
+
+	@Override
+	public World getWorld() {
+		return this.factionsfplayer.getPlayer().getWorld();
+	}
+
+	@Override
+	public String getName() {
+		return this.factionsfplayer.getName();
+	}
+
+	@Override
+	public double getPowerBoost() {
+		return this.factionsfplayer.getPowerBoost();
+	}
+
+	@Override
+	public void setPowerBoost(Double boost) {
+		this.factionsfplayer.setPowerBoost(boost);
+	}
+
+	@Override
+	public boolean hasPowerBoost() {
+		return (this.getPower() != 0D);
+	}
+
+	@Override
+	public double getPower() {
+		return this.factionsfplayer.getPower();
+	}
+
+	@Override
+	public int getPowerRounded() {
+		return (int) Math.floor(this.getPower());
+	}
+
+	@Override
+	public boolean tryClaim(Faction faction, Location location) {
+		return this.factionsfplayer.attemptClaim(com.massivecraft.factions.Factions.getInstance().getFactionById(faction.getId()), location, true);
+	}
+
+	@Override
+	public boolean tryClaim(Faction faction, Collection<Location> locations) {
+		for (Location location : locations) {
+			if (! this.tryClaim(faction, location)) return false;
+		}
+		return true;
 	}
 	
 }

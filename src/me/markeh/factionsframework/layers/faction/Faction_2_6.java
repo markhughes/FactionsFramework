@@ -85,7 +85,7 @@ public class Faction_2_6 extends Messenger implements Faction {
 		for (UPlayer uplayer : this.getUPlayers()) {
 			FPlayer fplayer = FPlayers.getById(uplayer.getId());
 			
-			if (relsList.contains(fplayer.getRank())) members.add(fplayer);
+			if (relsList.contains(fplayer.getRole())) members.add(fplayer);
 		}
 		
 		return members;
