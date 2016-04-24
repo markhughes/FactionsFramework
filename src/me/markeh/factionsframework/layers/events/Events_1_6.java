@@ -30,6 +30,7 @@ import me.markeh.factionsframework.event.EventFactionsCreate;
 import me.markeh.factionsframework.event.EventFactionsDisband;
 import me.markeh.factionsframework.event.EventFactionsJoin;
 import me.markeh.factionsframework.event.EventFactionsLeave;
+import me.markeh.factionsframework.event.EventFactionsRename;
 import me.markeh.factionsframework.layers.EventsLayer;
 
 public class Events_1_6 extends EventsLayer {
@@ -58,6 +59,19 @@ public class Events_1_6 extends EventsLayer {
 		eventFactionsCreate.call();
 		
 		event.setCancelled(eventFactionsCreate.isCancelled());
+	}
+	
+	// -------------------------------------------------- //
+	// RENAME EVENTS
+	// -------------------------------------------------- //
+
+	@EventHandler
+	public void onEventFactionsRename(com.massivecraft.factions.event.FactionRenameEvent event) {
+		EventFactionsRename eventFactionsRename = new EventFactionsRename(Factions.getById(event.getFaction().getId()), event.getFactionTag(), FPlayers.getById(event.getfPlayer().getId()));
+		eventFactionsRename.setCancelled(event.isCancelled());
+		eventFactionsRename.call();
+		
+		event.setCancelled(eventFactionsRename.isCancelled());
 	}
 	
 	// -------------------------------------------------- //
