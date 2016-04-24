@@ -14,6 +14,8 @@ public interface Faction {
 	
 	public String getDescription();
 	
+	public void setDescription(String description);
+	
 	public Set<FPlayer> getMembers();
 	
 	public Set<FPlayer> getOfficers();

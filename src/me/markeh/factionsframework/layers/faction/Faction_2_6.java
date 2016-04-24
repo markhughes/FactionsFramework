@@ -63,6 +63,11 @@ public class Faction_2_6 extends Messenger implements Faction {
 	public String getDescription() {
 		return faction.getDescription();
 	}
+	
+	@Override
+	public void setDescription(String description) {
+		faction.setDescription(description);
+	}
 
 	@Override
 	public Set<FPlayer> getMembers() {

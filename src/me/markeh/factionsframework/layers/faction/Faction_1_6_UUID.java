@@ -54,6 +54,11 @@ public class Faction_1_6_UUID extends Messenger implements Faction {
 	public String getDescription() {
 		return this.faction.getDescription();
 	}
+	
+	@Override
+	public void setDescription(String description) {
+		this.faction.setDescription(description);		
+	}
 
 	@Override
 	public Set<FPlayer> getMembers() {
@@ -82,7 +87,6 @@ public class Faction_1_6_UUID extends Messenger implements Faction {
 		return members;
 
 	}
-
 
 	@Override
 	public Set<FPlayer> getOfficers() {
