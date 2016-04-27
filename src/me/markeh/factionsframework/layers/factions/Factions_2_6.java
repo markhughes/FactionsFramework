@@ -8,6 +8,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import org.bukkit.Chunk;
+import org.bukkit.World;
 
 import com.massivecraft.factions.entity.BoardColl;
 import com.massivecraft.factions.entity.BoardColls;
@@ -30,6 +31,8 @@ public class Factions_2_6 extends Factions {
 	
 	private HashMap<String, Faction> factionsMap = new HashMap<String, Faction>();
 	private String noneId = null;
+	private String warzoneId = null;
+	private String safezoneId = null;
 	
 	// -------------------------------------------------- //
 	// METHODS 
@@ -71,16 +74,42 @@ public class Factions_2_6 extends Factions {
 	}
 
 	@Override
-	public Faction getFactionNone() {
-		if (noneId == null) {
+	public Faction getFactionNone(World world) {
+		if (this.noneId == null) {
 			try {
-				noneId = (String) com.massivecraft.factions.Factions.class.getField("ID_NONE").get(this);
+				this.noneId = FactionColls.get().getForWorld(world.getName()).getNone().getId();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
 		
-		return get(noneId);
+		return get(this.noneId);
+	}
+	
+	@Override
+	public Faction getFactionWarZone(World world) {
+		if (this.warzoneId == null) {
+			try {
+				this.warzoneId = FactionColls.get().getForWorld(world.getName()).getWarzone().getId();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return get(this.warzoneId);
+	}
+
+	@Override
+	public Faction getFactionSafeZone(World world) {
+		if (this.safezoneId == null) {
+			try {
+				this.safezoneId = FactionColls.get().getForWorld(world.getName()).getSafezone().getId();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return get(this.safezoneId);
 	}
 	
 	@Override

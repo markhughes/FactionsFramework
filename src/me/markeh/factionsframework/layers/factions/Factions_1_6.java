@@ -5,6 +5,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import org.bukkit.Chunk;
+import org.bukkit.World;
 
 import com.massivecraft.factions.Board;
 import com.massivecraft.factions.FLocation;
@@ -23,6 +24,8 @@ public class Factions_1_6 extends Factions {
 	
 	private HashMap<String, Faction> factionsMap = new HashMap<String, Faction>();
 	private String noneId = null;
+	private String warzoneId = null;
+	private String safezoneId = null;
 	
 	// -------------------------------------------------- //
 	// METHODS 
@@ -60,10 +63,25 @@ public class Factions_1_6 extends Factions {
 	}
 
 	@Override
-	public Faction getFactionNone() {
+	public Faction getFactionNone(World world) {
 		if (this.noneId == null) this.noneId = com.massivecraft.factions.Factions.getInstance().getWilderness().getId();
 		
 		return this.get(this.noneId);
+	}
+	
+	@Override
+	public Faction getFactionWarZone(World world) {
+		if (this.warzoneId == null) this.warzoneId = com.massivecraft.factions.Factions.getInstance().getWarZone().getId();
+		
+		return this.get(this.warzoneId);
+	}
+
+
+	@Override
+	public Faction getFactionSafeZone(World world) {
+		if (this.safezoneId == null) this.safezoneId = com.massivecraft.factions.Factions.getInstance().getSafeZone().getId();
+		
+		return this.get(this.warzoneId);
 	}
 	
 	@Override
