@@ -7,6 +7,7 @@ import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 
+import com.massivecraft.factions.Board;
 import com.massivecraft.factions.iface.RelationParticipator;
 import com.massivecraft.factions.struct.Relation;
 import com.massivecraft.factions.struct.Role;
@@ -58,7 +59,7 @@ public class FPlayer_1_6 extends Messenger implements FPlayer {
 	
 	@Override
 	public Faction getFaction() {
-		if (this.id == "@console") return Factions.getNone();
+		if (this.id == "@console") return Factions.getNone(this.factionsfplayer.getPlayer().getWorld());
 		
 		return Factions.getById(this.factionsfplayer.getFaction().getId());
 	}
@@ -142,7 +143,12 @@ public class FPlayer_1_6 extends Messenger implements FPlayer {
 	public Location getLocation() {
 		return this.factionsfplayer.getPlayer().getLocation();
 	}
-
+	
+	@Override
+	public Faction getFactionAt() {
+		return Factions.getById(Board.getInstance().getFactionAt(this.factionsfplayer.getLastStoodAt()).getId());
+	}
+	
 	@Override
 	public World getWorld() {
 		return this.factionsfplayer.getPlayer().getWorld();

@@ -59,7 +59,7 @@ public class FPlayer_2_6 extends Messenger implements FPlayer {
 
 	@Override
 	public Faction getFaction() {
-		if (this.id == "@console") return Factions.getNone();
+		if (this.id == "@console") return Factions.getNone(this.uplayer.getPlayer().getWorld());
 		
 		return Factions.getById(this.uplayer.getFaction().getId());
 	}
@@ -126,6 +126,11 @@ public class FPlayer_2_6 extends Messenger implements FPlayer {
 	@Override
 	public Location getLocation() {
 		return this.uplayer.getPlayer().getLocation();
+	}
+	
+	@Override
+	public Faction getFactionAt() {
+		return Factions.getFactionAt(this.uplayer.getPlayer().getLocation());
 	}
 
 	@Override

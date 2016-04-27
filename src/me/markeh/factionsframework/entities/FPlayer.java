@@ -34,6 +34,8 @@ public interface FPlayer {
 	
 	public Location getLocation();
 	
+	public Faction getFactionAt();
+	
 	public World getWorld();
 	
 	public String getName();
