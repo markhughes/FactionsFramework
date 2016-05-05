@@ -60,7 +60,7 @@ public class FPlayer_2_8_6 extends Messenger implements FPlayer {
 
 	@Override
 	public Faction getFaction() {
-		if (this.id == "@console") return Factions.getNone(this.mplayer.getPlayer().getWorld());
+		if (this.id == "@console") return Factions.getNone(Bukkit.getWorlds().get(0));
 
 		return Factions.getById(this.mplayer.getFactionId());
 	}

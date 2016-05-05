@@ -113,7 +113,7 @@ public class Events_2_8_6 extends EventsLayer {
 		// Size change, so handle it 
 		if (chunksChangeEvent.getChunks().size() != chunks.size()) {
 			event.setCancelled(true);
-			if (event.getNewFaction().getId() == Factions.getNone().getId()) {
+			if (event.getNewFaction().isNone()) {
 				this.handleNewUnclaims(event.getMPlayer(), event.getNewFaction(), chunks);
 			} else {
 				this.handleNewClaims(event.getMPlayer(), event.getNewFaction(), chunks);
@@ -126,7 +126,7 @@ public class Events_2_8_6 extends EventsLayer {
 			
 			event.setCancelled(true);
 			
-			if (event.getNewFaction().getId() == Factions.getNone().getId()) {
+			if (event.getNewFaction().isNone()) {
 				this.handleNewUnclaims(event.getMPlayer(), event.getNewFaction(), chunks);
 			} else {
 				this.handleNewClaims(event.getMPlayer(), event.getNewFaction(), chunks);
@@ -198,7 +198,7 @@ public class Events_2_8_6 extends EventsLayer {
 	
 	// Mimic an unclaim for a player 
 	private Boolean mimicUnclaim(com.massivecraft.factions.entity.MPlayer mplayer, com.massivecraft.factions.entity.Faction faction, PS ps) {
-		this.doSetAt(Collections.singleton(ps), mplayer, FactionColl.get().get(Factions.getNone().getId()));
+		this.doSetAt(Collections.singleton(ps), mplayer, FactionColl.get().get(Factions.getNone(ps.asBukkitWorld()).getId()));
 		return true;
 	}
 	

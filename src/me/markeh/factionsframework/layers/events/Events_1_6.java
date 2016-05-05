@@ -5,6 +5,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import org.bukkit.Chunk;
+import org.bukkit.World;
 import org.bukkit.event.EventHandler;
 
 import com.massivecraft.factions.Board;
@@ -121,7 +122,7 @@ public class Events_1_6 extends EventsLayer {
 		Chunk chunk = event.getLocation().getWorld().getChunkAt(Math.toIntExact(event.getLocation().getX()), Math.toIntExact(event.getLocation().getZ()));
 		chunks.add(chunk);
 		
-		Faction newFaction = Factions.getNone();
+		Faction newFaction = Factions.getNone(event.getLocation().getWorld());
 		
 		FPlayer fplayer = FPlayers.getById(event.getfPlayer().getId());
 		
@@ -154,12 +155,16 @@ public class Events_1_6 extends EventsLayer {
 		Set<FLocation> flocations = event.getFaction().getAllClaims();
 		Set<Chunk> chunks = new TreeSet<Chunk>();
 		
+		World world = null;
+		
 		for (FLocation flocation : flocations) {
 			Chunk chunk = flocation.getWorld().getChunkAt(Math.toIntExact(flocation.getX()), Math.toIntExact(flocation.getZ()));
 			chunks.add(chunk);
+			
+			if (world == null) world = flocation.getWorld();
 		}
 		
-		Faction newFaction = Factions.getNone();
+		Faction newFaction = Factions.getNone(world);
 		
 		FPlayer fplayer = FPlayers.getById(event.getfPlayer().getId());
 		

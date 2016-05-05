@@ -139,7 +139,7 @@ public class Events_2_6 extends EventsLayer {
 			// Chunks have been removed/added so we'll redo this  
 			event.setCancelled(true);
 			
-			if (event.getNewFaction() == Factions.getNone()) {
+			if (event.getNewFaction().isNone()) {
 				this.handleNewUnclaims(this.getUSender(event), factionsFaction, eventFactionsChunksChange.getChunks());
 
 			} else {
@@ -151,7 +151,7 @@ public class Events_2_6 extends EventsLayer {
 		
 		// Must only be one (only 1 called in this event) 
 		if (this.getFinalChunk(chunks) != chunk) {
-			if (event.getNewFaction() == Factions.getNone()) {
+			if (event.getNewFaction().isNone()) {
 				this.handleNewUnclaims(this.getUSender(event), factionsFaction, eventFactionsChunksChange.getChunks());
 			} else {
 				this.handleNewClaims(this.getUSender(event), factionsFaction, eventFactionsChunksChange.getChunks());
@@ -232,7 +232,7 @@ public class Events_2_6 extends EventsLayer {
 	
 	// Mimic an unclaim for a player 
 	private Boolean mimicUnclaim(com.massivecraft.factions.entity.UPlayer uplayer, com.massivecraft.factions.entity.Faction faction, PS ps) {
-		this.doSetAt(Collections.singleton(ps), uplayer, FactionColls.get().get2(Factions.getNone().getId()));
+		this.doSetAt(Collections.singleton(ps), uplayer, FactionColls.get().get2(Factions.getNone(ps.asBukkitWorld()).getId()));
 		return true;
 	}
 	
