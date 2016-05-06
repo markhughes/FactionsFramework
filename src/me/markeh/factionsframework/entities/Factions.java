@@ -7,9 +7,14 @@ import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.World;
 
-import me.markeh.factionsframework.FactionsFramework;
+import me.markeh.factionsframework.deprecation.Deprecation;
+import me.markeh.factionsframework.enums.FactionsVersion;
+import me.markeh.factionsframework.layer.layer_1_6.Factions_1_6;
+import me.markeh.factionsframework.layer.layer_2_6.Factions_2_6;
+import me.markeh.factionsframework.layer.layer_2_8_6.Factions_2_8_6;
+import me.markeh.factionsframework.layer.layer_2_8_7.Factions_2_8_7;
 
-public abstract class Factions {
+public abstract class Factions implements Handler {
 
 	// -------------------------------------------------- //
 	// STATIC GETTERS  
@@ -21,7 +26,7 @@ public abstract class Factions {
 	 * @return faction for that player 
 	 */
 	public static Faction getFor(FPlayer player) {
-		return FactionsFramework.get().getFactions().getForPlayer(player);
+		return ((Factions) getHandler()).getForPlayer(player);
 	}
 	
 	/**
@@ -32,7 +37,7 @@ public abstract class Factions {
 	public static Faction getById(String id) {
 		if (id == null) return null;
 		
-		return FactionsFramework.get().getFactions().get(id);
+		return ((Factions) getHandler()).get(id);
 	}
 	
 	/**
@@ -42,7 +47,7 @@ public abstract class Factions {
 	 * @return faction of that name, or null otherwise 
 	 */
 	public static Faction getByName(String name, String universe) {
-		return FactionsFramework.get().getFactions().getUsingName(name, universe);
+		return ((Factions) getHandler()).getUsingName(name, universe);
 	}
 	
 	/**
@@ -54,7 +59,8 @@ public abstract class Factions {
 	 */
 	@Deprecated
 	public static Faction getNone() {
-		return FactionsFramework.get().getFactions().getFactionNone(Bukkit.getWorlds().get(0));
+		Deprecation.showDeprecationWarningForMethod("Factions#getNone");
+		return ((Factions) getHandler()).getFactionNone(Bukkit.getWorlds().get(0));
 	}
 	
 	/**
@@ -63,7 +69,7 @@ public abstract class Factions {
 	 * @return faction none for that world
 	 */
 	public static Faction getNone(World world) {
-		return FactionsFramework.get().getFactions().getFactionNone(world);
+		return ((Factions) getHandler()).getFactionNone(world);
 	}
 	
 	/**
@@ -72,7 +78,7 @@ public abstract class Factions {
 	 * @return faction none for that world
 	 */
 	public static Faction getWarZone(World world) {
-		return FactionsFramework.get().getFactions().getFactionWarZone(world);
+		return ((Factions) getHandler()).getFactionWarZone(world);
 	}
 	
 	/**
@@ -81,7 +87,7 @@ public abstract class Factions {
 	 * @return faction none for that world
 	 */
 	public static Faction getSafeZone(World world) {
-		return FactionsFramework.get().getFactions().getFactionSafeZone(world);
+		return ((Factions) getHandler()).getFactionSafeZone(world);
 	}
 	
 	/**
@@ -90,7 +96,7 @@ public abstract class Factions {
 	 * @return faction at location
 	 */
 	public static Faction getFactionAt(Chunk chunk) {
-		return FactionsFramework.get().getFactions().getAt(chunk);
+		return ((Factions) getHandler()).getAt(chunk);
 	}
 	
 	/**
@@ -107,7 +113,33 @@ public abstract class Factions {
 	 * @return set of factions
 	 */
 	public static Set<Faction> getAll() {
-		return FactionsFramework.get().getFactions().getAllFactions();
+		return ((Factions) getHandler()).getAllFactions();
+	}
+	
+	private static Factions factionsInstance = null;
+	public static Handler getHandler() {
+		if (factionsInstance == null) {
+			switch (FactionsVersion.get()) {
+				case Factions_1_6 :
+					factionsInstance = new Factions_1_6();
+					break;
+				case Factions_2_6 :
+					factionsInstance = new Factions_2_6();
+					break;
+				case Factions_2_8_2 :
+				case Factions_2_8_6 :
+					factionsInstance = new Factions_2_8_6();
+					break;
+				case Factions_2_8_7 :
+					factionsInstance = new Factions_2_8_7();
+					break;
+				default :
+					factionsInstance = null;
+					break;
+			}
+		}
+		
+		return factionsInstance;
 	}
 	
 	// -------------------------------------------------- //

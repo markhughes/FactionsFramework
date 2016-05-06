@@ -3,11 +3,11 @@ package me.markeh.factionsframework.command;
 import org.bukkit.command.CommandSender;
 
 import me.markeh.factionsframework.enums.FactionsVersion;
-import me.markeh.factionsframework.layers.commandmanager.CommandManager_1_6;
-import me.markeh.factionsframework.layers.commandmanager.CommandManager_2_6;
-import me.markeh.factionsframework.layers.commandmanager.CommandManager_2_8_2;
-import me.markeh.factionsframework.layers.commandmanager.CommandManager_2_8_6;
-import me.markeh.factionsframework.layers.commandmanager.CommandManager_2_8_7;
+import me.markeh.factionsframework.layer.layer_1_6.CommandManager_1_6;
+import me.markeh.factionsframework.layer.layer_2_6.CommandManager_2_6;
+import me.markeh.factionsframework.layer.layer_2_8_2.CommandManager_2_8_2;
+import me.markeh.factionsframework.layer.layer_2_8_6.CommandManager_2_8_6;
+import me.markeh.factionsframework.layer.layer_2_8_7.CommandManager_2_8_7;
 
 public abstract class FactionsCommandManager {
 	

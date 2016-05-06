@@ -7,7 +7,7 @@ import java.util.TreeSet;
 
 import org.bukkit.ChatColor;
 
-import me.markeh.factionsframework.layers.ConfLayer;
+import me.markeh.factionsframework.layer.ConfLayer;
 
 // This is heavily based off the existing Factions Rel enum
 public enum Rel {

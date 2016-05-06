@@ -31,12 +31,12 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import me.markeh.factionsframework.command.FactionsCommandManager;
+import me.markeh.factionsframework.deprecation.Deprecation;
 import me.markeh.factionsframework.entities.FPlayers;
 import me.markeh.factionsframework.entities.Factions;
 import me.markeh.factionsframework.enums.FactionsVersion;
-import me.markeh.factionsframework.layers.*;
-import me.markeh.factionsframework.layers.factions.*;
-import me.markeh.factionsframework.layers.fplayers.*;
+import me.markeh.factionsframework.layer.ConfLayer;
+import me.markeh.factionsframework.layer.EventsLayer;
 
 /**
  * Factions Framework has a 6 month deprecation policy.
@@ -55,9 +55,6 @@ public class FactionsFramework extends JavaPlugin {
 	// -------------------------------------------------- //
 	// FIELDS  
 	// -------------------------------------------------- //
-		
-	private Factions factionsInstance = null;
-	private FPlayers fplayersInstance = null;
 	
 	private Gson gson = new GsonBuilder().setPrettyPrinting().create();
 	
@@ -113,63 +110,36 @@ public class FactionsFramework extends JavaPlugin {
 		
 	}
 	
-	public final Factions getFactions() {
-		if (this.factionsInstance == null) {
-			switch (FactionsVersion.get()) {
-				case Factions_1_6 :
-					this.factionsInstance = new Factions_1_6();
-					break;
-				case Factions_2_6 :
-					this.factionsInstance = new Factions_2_6();
-					break;
-				case Factions_2_8_2 :
-				case Factions_2_8_6 :
-					this.factionsInstance = new Factions_2_8_6();
-					break;
-				case Factions_2_8_7 :
-					this.factionsInstance = new Factions_2_8_7();
-					break;
-				default :
-					this.factionsInstance = null;
-					break;
-			}
-		}
-		
-		return this.factionsInstance;
-	}
-	
-	public final FPlayers getFPlayers() {
-		if (this.fplayersInstance == null) {
-			switch (FactionsVersion.get()) {
-				case Factions_1_6 :
-					this.fplayersInstance = new FPlayers_1_6();
-					log("Factions instance ");
-					break;
-				case Factions_2_6 :
-					this.fplayersInstance = new FPlayers_2_6();
-					break;
-				case Factions_2_8_2 :
-				case Factions_2_8_6 :
-					this.fplayersInstance = new FPlayers_2_8_6();
-					break;
-				case Factions_2_8_7 :
-					this.fplayersInstance = new FPlayers_2_8_7();
-					break;
-				default :
-					this.fplayersInstance = null;
-					break;
-			}
-		}
-		
-		return this.fplayersInstance;
-	}
-	
 	public final void log(String...msgs) {
 		for (String msg : msgs) this.getServer().getConsoleSender().sendMessage(ChatColor.DARK_AQUA + "[" + ChatColor.AQUA + "FactionsFramework" + ChatColor.DARK_AQUA + "] " + ChatColor.WHITE + msg);
 	}
 	
 	public final Gson getGson() {
 		return this.gson;
+	}
+	
+	/**
+	 * Get Factions instance 
+	 * 
+	 * @deprecated to be removed on 06/12/2016
+	 * Use the static methods instead of this instance
+	 */
+	@Deprecated
+	public final Factions getFactions() {
+		Deprecation.showDeprecationWarningForMethod("FactionsFramework#getFactions");
+		return ((Factions) Factions.getHandler());
+	}
+	
+	/**
+	 * Get FPlayers instance 
+	 * 
+	 * @deprecated to be removed on 06/12/2016
+	 * Use the static methods instead of this instance
+	 */
+	@Deprecated
+	public final FPlayers getFPlayers() {
+		Deprecation.showDeprecationWarningForMethod("FactionsFramework#getFPlayers");
+		return ((FPlayers) Factions.getHandler());
 	}
 	
 }

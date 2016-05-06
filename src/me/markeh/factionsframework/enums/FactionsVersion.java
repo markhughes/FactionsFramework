@@ -6,6 +6,7 @@ import org.bukkit.plugin.Plugin;
 public enum FactionsVersion {
 	
 	Factions_1_6,
+	Factions_1_8,
 	Factions_2_6,
 	Factions_2_8_2,
 	Factions_2_8_6,
@@ -29,6 +30,8 @@ public enum FactionsVersion {
 			// Factions UUID starts with '1.6.9.5-U', we only support the
 			// latest version of FactionsUUID
 			return Factions_1_6;
+		} else if (factionsVersion.startsWith("1.8")) {
+			return Factions_1_8;
 		} else if (factionsVersion.startsWith("2.")) {
 			// Is a 2.x variation, however there are lots of changes through these
 			// minor releases we can use to determine the version.
@@ -56,7 +59,7 @@ public enum FactionsVersion {
 			return Factions_2_8_7;					
 		}
 		
-		throw new Error("Please use FactionsUUID (1.6.9.5-U) or Factions 2.5+");
+		throw new Error("Please use FactionsUUID (1.6.9.5-U), FactionsOne(1.8.x), or Factions 2.5+");
 	}
 
 	public boolean isAtLeast(FactionsVersion version) {
