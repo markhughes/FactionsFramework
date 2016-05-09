@@ -1,0 +1,32 @@
+apply plugin: "eclipse"
+apply plugin: "java"
+
+group = project.property("group")
+version = project.property("version")
+sourceCompatibility = project.property("sourceversion")
+
+eclipse {
+	classpath {
+	   downloadSources=true
+	}
+}
+
+repositories {
+    mavenLocal()
+    jcenter()
+
+    maven {
+        url "https://hub.spigotmc.org/nexus/content/groups/public/"
+    }
+}
+
+dependencies {
+    compile "org.slf4j:slf4j-api:1.7.12"
+    compile group: "org.spigotmc", name: "spigot-api", version: project.property("apiversion"), { ext { fatJarExclude = true } }
+}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+}
