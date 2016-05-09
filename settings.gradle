@@ -1,0 +1,8 @@
+include 'framework'
+include 'layers/Layer_1_6'
+include 'layers/Layer_1_8'
+include 'layers/Layer_2_6'
+include 'layers/Layer_2_7'
+include 'layers/Layer_2_8_2'
+include 'layers/Layer_2_8_6'
+include 'layers/Layer_2_8_7'
