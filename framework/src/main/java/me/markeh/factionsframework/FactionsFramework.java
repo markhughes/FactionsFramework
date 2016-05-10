@@ -37,6 +37,7 @@ import me.markeh.factionsframework.entities.Factions;
 import me.markeh.factionsframework.enums.FactionsVersion;
 import me.markeh.factionsframework.layer.ConfLayer;
 import me.markeh.factionsframework.layer.EventsLayer;
+import me.markeh.factionsframework.layer.LoadBase;
 
 /**
  * Factions Framework has a 6 month deprecation policy.
@@ -80,6 +81,10 @@ public class FactionsFramework extends JavaPlugin {
 		}
 		
 		log("Factions version is: " + FactionsVersion.get().toString());
+		
+		if (LoadBase.get() != null) {
+			LoadBase.get().enabled();
+		}
 	}
 	
 	// -------------------------------------------------- //
@@ -91,6 +96,10 @@ public class FactionsFramework extends JavaPlugin {
 		HandlerList.unregisterAll(EventsLayer.get());
 		
 		FactionsCommandManager.get().removeAll();
+		
+		if (LoadBase.get() != null) {
+			LoadBase.get().disabled();
+		}
 	}
 	
 	// -------------------------------------------------- //
