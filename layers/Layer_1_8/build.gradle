@@ -16,6 +16,6 @@ repositories {
 }
 
 dependencies {
-    compile files("lib/FactionsOne-1.2.2.jar")
+    compile files("lib/factionsone-1.3-SNAPSHOT-07.jar")
     compile project(":framework")
 }
