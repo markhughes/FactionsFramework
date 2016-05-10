@@ -7,15 +7,20 @@ allprojects {
         jcenter()
 
         maven {
-            url 'https://hub.spigotmc.org/nexus/content/groups/public/'
+            url "https://hub.spigotmc.org/nexus/content/groups/public/"
+        }
+
+        maven {
+            name "BungeeCord"
+            url "https://oss.sonatype.org/content/repositories/snapshots"
         }
     }
 
     dependencies {
-        compile group: 'org.spigotmc', name: 'spigot-api', version: project.property("apiversion"), { ext { fatJarExclude = true } }
+        compile group: "org.spigotmc", name: "spigot-api", version: project.property("apiversion"), { ext { fatJarExclude = true } }
     }
 
-    mainClassName = 'me.markeh.factionsframework.FactionsFramework'
+    mainClassName = "me.markeh.factionsframework.FactionsFramework"
 }
 
 task copyResources {
@@ -29,17 +34,19 @@ task copyResources {
 }
 
 subprojects.each { subproject -> evaluationDependsOn( subproject.path ) }
-jar.dependsOn subprojects.tasks['classes']
+jar.dependsOn subprojects.tasks["classes"]
 jar {
-  baseName = 'FactionsFramework'
-  applicationDistribution.from(copyResources) {
-      into ""
-  }
-  manifest {
-    attributes 'Main-Class': 'me.markeh.factionsframework.FactionsFramework'
-  }
-  subprojects.each { subproject ->
-    from subproject.sourceSets.main.output.classesDir
-    from subproject.sourceSets.main.output.resourcesDir
-  }
+    baseName = "FactionsFramework"
+    applicationDistribution.from(copyResources) {
+        into ""
+    }
+
+    manifest {
+        attributes "Main-Class": "me.markeh.factionsframework.FactionsFramework"
+    }
+
+    subprojects.each { subproject ->
+        from subproject.sourceSets.main.output.classesDir
+        from subproject.sourceSets.main.output.resourcesDir
+    }
 }
