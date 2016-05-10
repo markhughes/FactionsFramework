@@ -33,10 +33,8 @@ public abstract class FPlayers implements Handler {
 						break;
 					case Factions_2_8_2 :
 					case Factions_2_8_6 :
-						fplayersInstance = (FPlayers) Class.forName("me.markeh.factionsframework.layer.layer_2_8_6.FPlayers_2_8_6").newInstance();
-						break;
 					case Factions_2_8_7 :
-						fplayersInstance = (FPlayers) Class.forName("me.markeh.factionsframework.layer.layer_2_8_7.FPlayers_2_8_7").newInstance();
+						fplayersInstance = (FPlayers) Class.forName("me.markeh.factionsframework.layer.layer_2_8_6.FPlayers_2_8_6").newInstance();
 						break;
 					default :
 						fplayersInstance = null;

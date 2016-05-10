@@ -125,11 +125,8 @@ public abstract class Factions implements Handler {
 						break;
 					case Factions_2_8_2 :
 					case Factions_2_8_6 :
-						factionsInstance = (Factions) Class.forName("me.markeh.factionsframework.layer.layer_2_8_6.Factions_2_8_6").newInstance();
-						break;
 					case Factions_2_8_7 :
-						factionsInstance = (Factions) Class.forName("me.markeh.factionsframework.layer.layer_2_8_7.Factions_2_8_7").newInstance();
-						break;
+						factionsInstance = (Factions) Class.forName("me.markeh.factionsframework.layer.layer_2_8_6.Factions_2_8_6").newInstance();
 					default :
 						factionsInstance = null;
 						break;

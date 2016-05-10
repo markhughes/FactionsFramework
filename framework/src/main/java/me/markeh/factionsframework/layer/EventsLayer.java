@@ -28,10 +28,8 @@ public abstract class EventsLayer implements Listener {
 						break;
 					case Factions_2_8_2 :
 					case Factions_2_8_6 :
-						layer = (EventsLayer) Class.forName("me.markeh.factionsframework.layer.layer_2_8_6.Events_2_8_6").newInstance();
-						break;
 					case Factions_2_8_7 :
-						layer = (EventsLayer) Class.forName("me.markeh.factionsframework.layer.layer_2_8_7.Events_2_8_7").newInstance();
+						layer = (EventsLayer) Class.forName("me.markeh.factionsframework.layer.layer_2_8_6.Events_2_8_6").newInstance();
 						break;
 					default :
 						break;
