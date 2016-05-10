@@ -35,10 +35,10 @@ public class CommandManager_2_8_6 extends FactionsCommandManager {
 		this.cmdMap.put(command, nativeCommand);
 		
 		try {
-			this.getCmdFactions().getClass().getMethod("addChild", MassiveCommand.class).invoke(getCmdFactions(), command);
+			this.getCmdFactions().getClass().getMethod("addChild", MassiveCommand.class).invoke(getCmdFactions(), nativeCommand);
 		} catch (Exception e1) {
 			try {
-				this.getCmdFactions().getClass().getMethod("addSubCommand", MassiveCommand.class).invoke(getCmdFactions(), command);
+				this.getCmdFactions().getClass().getMethod("addSubCommand", MassiveCommand.class).invoke(getCmdFactions(), nativeCommand);
 			} catch (Exception e2) {
 				this.cmdMap.remove(command);
 				FactionsFramework.get().logError(e1);
@@ -92,7 +92,7 @@ public class CommandManager_2_8_6 extends FactionsCommandManager {
 							
 				Field field = com.massivecraft.factions.Factions.class.getDeclaredField("outerCmdFactions");
 				field.setAccessible(true);
-							
+				
 				this.cmdFactionsInstance = (com.massivecraft.factions.cmd.CmdFactions) field.get(factionsInstance);
 				
 			} catch(Exception e) {
