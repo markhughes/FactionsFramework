@@ -24,7 +24,6 @@ public class Command_2_8_2 extends com.massivecraft.factions.cmd.FactionsCommand
 	// ---------------------------------------- //
 	
 	public Command_2_8_2(FactionsCommand command) {
-		FactionsFramework.get().log("Construct yay");
 		this.command = command;
 		
 		this.aliases.addAll(command.getAliases());
