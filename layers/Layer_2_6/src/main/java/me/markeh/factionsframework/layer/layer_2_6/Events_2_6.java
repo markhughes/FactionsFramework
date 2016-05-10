@@ -1,9 +1,6 @@
 package me.markeh.factionsframework.layer.layer_2_6;
 
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -11,13 +8,10 @@ import org.bukkit.Chunk;
 import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 
-import com.massivecraft.factions.entity.BoardColls;
 import com.massivecraft.factions.entity.FactionColls;
 import com.massivecraft.factions.entity.UPlayer;
-import com.massivecraft.factions.event.EventFactionsChunkChangeType;
 import com.massivecraft.factions.event.EventFactionsMembershipChange.MembershipChangeReason;
 import com.massivecraft.massivecore.ps.PS;
-import com.massivecraft.massivecore.ps.PSFormatHumanSpace;
 
 import me.markeh.factionsframework.entities.FPlayer;
 import me.markeh.factionsframework.entities.FPlayers;
@@ -235,47 +229,15 @@ public class Events_2_6 extends EventsLayer {
 		return true;
 	}
 	
-	// Minimics an claim for a player (based off existing factions 1.6 code) 
+	// Minimics an claim for a player (based off existing factions 2.6 code) 
 	private Boolean mimicClaim(com.massivecraft.factions.entity.UPlayer uplayer, com.massivecraft.factions.entity.Faction faction, PS ps) {
 		doSetAt(Collections.singleton(ps), uplayer, faction);
 		return true;
 	}
 	
-	// Based off original code 
 	private void doSetAt(Set<PS> chunks, UPlayer player, com.massivecraft.factions.entity.Faction newFaction) {
-		String formatOne = "<h>%s<i> %s <h>%d <i>chunk %s<i>.";
-		String formatMany = "<h>%s<i> %s <h>%d <i>chunks near %s<i>.";
-		
-		HashMap<com.massivecraft.factions.entity.Faction, Set<PS>> oldFactionChunks = new HashMap<com.massivecraft.factions.entity.Faction, Set<PS>>();
-		
 		for (PS chunk : chunks) {
-			com.massivecraft.factions.entity.Faction factionHere = BoardColls.get().getFactionAt(chunk);
-			Set<PS> claims = new HashSet<PS>();
-			
-			if (oldFactionChunks.containsKey(factionHere)) {
-				claims = oldFactionChunks.get(factionHere);
-				claims.add(chunk);
-			}
-			
-			oldFactionChunks.put(factionHere, claims);			
-			BoardColls.get().setFactionAt(chunk, newFaction);
-		}
-		
-		// Inform
-		for (Entry<com.massivecraft.factions.entity.Faction, Set<PS>> entry : oldFactionChunks.entrySet()) {
-			final com.massivecraft.factions.entity.Faction oldFaction = entry.getKey();
-			final Set<PS> oldChunks = entry.getValue();
-			final PS oldChunk = oldChunks.iterator().next();
-			final Set<UPlayer> informees = Factions_2_6.getClaimInformees(player, oldFaction, newFaction, this);
-			final EventFactionsChunkChangeType type = EventFactionsChunkChangeType.get(oldFaction, newFaction, player.getFaction());
-			
-			String chunkString = oldChunk.toString(PSFormatHumanSpace.get());
-			String typeString = type.past;
-			
-			for (UPlayer informee : informees) {
-				informee.msg((oldChunks.size() == 1 ? formatOne : formatMany), player.describeTo(informee, true), typeString, oldChunks.size(), chunkString);
-				informee.msg("  <h>%s<i> --> <h>%s", oldFaction.describeTo(informee, true), newFaction.describeTo(informee, true));
-			}
+			player.tryClaim(newFaction, chunk, true, true);
 		}
 	}
 	

@@ -10,8 +10,8 @@ import java.util.TreeSet;
 import org.bukkit.Chunk;
 import org.bukkit.World;
 
-import com.massivecraft.factions.entity.BoardColl;
 import com.massivecraft.factions.entity.BoardColls;
+import com.massivecraft.factions.entity.FactionColl;
 import com.massivecraft.factions.entity.FactionColls;
 import com.massivecraft.factions.entity.MConf;
 import com.massivecraft.factions.entity.UPlayer;
@@ -115,8 +115,8 @@ public class Factions_2_6 extends Factions {
 	public Set<Faction> getAllFactions() {
 		Set<Faction> factions = new TreeSet<Faction>();
 		
-		for (BoardColl coll: BoardColls.get().getColls()) {
-			for (com.massivecraft.factions.entity.Faction faction : coll.getFactionToChunks().keySet()) {
+		for (FactionColl coll: FactionColls.get().getColls()) {
+			for (com.massivecraft.factions.entity.Faction faction : coll.getAll()) {
 				factions.add(Factions.getById(faction.getId()));
 			}
 		}
@@ -133,7 +133,7 @@ public class Factions_2_6 extends Factions {
 		
 		if (usender != null) ret.add(usender);
 		
-		for (com.massivecraft.factions.entity.Faction faction : com.massivecraft.factions.entity.BoardColls.get().get2(usender).getFactionToChunks().keySet()) {
+		for (com.massivecraft.factions.entity.Faction faction : com.massivecraft.factions.entity.FactionColls.get().get2(usender).getColl().getAll()) {
 			if (faction == null) continue;
 			if (faction.isNone()) continue;
 			ret.addAll(getUPlayersIn(faction, clazz));

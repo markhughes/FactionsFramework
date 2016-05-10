@@ -1,6 +1,7 @@
 package me.markeh.factionsframework.layer.layer_2_6;
 
 import com.massivecraft.factions.cmd.FCommand;
+import com.massivecraft.massivecore.cmd.req.ReqHasPerm;
 
 import me.markeh.factionsframework.FactionsFramework;
 import me.markeh.factionsframework.command.FactionsCommand;
@@ -20,12 +21,12 @@ public class Command_2_6 extends FCommand implements CommandBase {
 		this.aliases.addAll(command.getAliases());
 		this.requiredArgs.addAll(command.getRequiredArguments());
 		this.optionalArgs.putAll(command.getOptionalArguments());
-		this.setHelpShort(this.command.getDescription());
+		this.setHelp(this.command.getDescription());
 
 		this.errorOnToManyArgs = ! command.overflowAllowed();
-
-		this.permission = command.getPermission();
-
+		
+		this.addRequirements(ReqHasPerm.get(command.getPermission()));
+		
 		if (command.getSubCommands().size() > 0) {
 			for (FactionsCommand subCommand : command.getSubCommands()) {
 				this.subCommands.add(new Command_2_6(subCommand));
@@ -64,10 +65,6 @@ public class Command_2_6 extends FCommand implements CommandBase {
 	@Override
 	public FactionsCommand getAsFactionsCommand() {
 		return this.command;
-	}
-
-	public Object getCommandChain() {
-		return this.commandChain;
 	}
 
 }
