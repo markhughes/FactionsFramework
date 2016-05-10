@@ -51,7 +51,7 @@ public class Command_2_8_2 extends com.massivecraft.factions.cmd.FactionsCommand
 		
 		if (command.getSubCommands().size() > 0) {
 			for (FactionsCommand subCommand : command.getSubCommands()) {
-				this.addChild(new Command_2_8_2(subCommand));
+				this.addSubCommand(new Command_2_8_2(subCommand));
 			}
 		}
 	}
