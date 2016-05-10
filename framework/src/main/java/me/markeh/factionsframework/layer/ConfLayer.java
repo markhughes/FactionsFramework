@@ -17,7 +17,11 @@ public abstract class ConfLayer {
 				if (FactionsVersion.get().isAtLeast(FactionsVersion.Factions_2_6)) {
 					layer = (ConfLayer) Class.forName("me.markeh.factionsframework.layer.layer_2_6.Conf_2").newInstance();
 				} else {
-					layer = (ConfLayer) Class.forName("me.markeh.factionsframework.layer.layer_1_6.Conf_1_6").newInstance();
+					if (FactionsVersion.get() == FactionsVersion.Factions_1_8) {
+						layer = (ConfLayer) Class.forName("me.markeh.factionsframework.layer.layer_1_8.Conf_1_8").newInstance();
+					} else {
+						layer = (ConfLayer) Class.forName("me.markeh.factionsframework.layer.layer_1_6.Conf_1_6").newInstance();
+					}
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
