@@ -18,6 +18,17 @@ In some cases, Factions Framework is more powerful than using the existing Facti
 
 Factions Framework supports Factions UUID (1.6), FactionsOne (1.8) and most versions of Factions 2.
 
+## Compiling
+Using [gradle](http://gradle.org/) you will find project is quite simple to build.
+
+```bash
+# Clone the repo
+git clone https://github.com/MarkehMe/FactionsFramework.git && cd FactionsFramework
+# Use gradle to compile
+gradle jar
+# Or, if you don't have gradle installed - there is an internal wrapper you can use
+./gradlew jar
+```
 
 ## Development Builds [![wercker status](https://app.wercker.com/status/92bc69512683cb678863e30e8ba82070/s "wercker status")](https://app.wercker.com/project/bykey/92bc69512683cb678863e30e8ba82070)
 
