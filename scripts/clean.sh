@@ -8,6 +8,7 @@ cleanProject () {
     rm -rf "$1/.settings"
     rm -rf "$1/bin"
     rm -rf "$1/.classpath"
+    rm -rf "$1/.classpath.bak"
     rm -rf "$1/.project"
     rm -rf "$1/.DS_Store"
 }
