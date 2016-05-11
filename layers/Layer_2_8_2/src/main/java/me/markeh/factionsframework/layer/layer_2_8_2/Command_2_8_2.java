@@ -1,9 +1,10 @@
 package me.markeh.factionsframework.layer.layer_2_8_2;
 
-import java.lang.reflect.Method;
 import java.util.Map.Entry;
 
 import com.massivecraft.massivecore.MassiveException;
+import com.massivecraft.massivecore.cmd.arg.ARString;
+import com.massivecraft.massivecore.cmd.req.ReqHasPerm;
 
 import me.markeh.factionsframework.FactionsFramework;
 import me.markeh.factionsframework.command.FactionsCommand;
@@ -29,23 +30,14 @@ public class Command_2_8_2 extends com.massivecraft.factions.cmd.FactionsCommand
 		this.aliases.addAll(command.getAliases());
 		this.setDesc(command.getDescription());
 		
-		try {
-			Class<?> ARString = Class.forName("com.massivecraft.massivecore.cmd.arg.ARString");
-			Method addArg = this.getClass().getMethod("addArg", ARString, String.class);
-			
-			// Register the required arguments 
-			for (String reqArg : command.getRequiredArguments()) {
-				addArg.invoke(this, ARString.getMethod("get").invoke(this), reqArg);
-			}
-			
-			// Register all the optional arguments
-			for (Entry<String, String> arg : command.getOptionalArguments().entrySet()) {
-				addArg.invoke(this, ARString.getMethod("get").invoke(this), arg.getKey(), arg.getKey());
-			}
-			
-			this.getClass().getMethod("setGivingErrorOnTooManyArgs", Boolean.class).invoke(this, ! this.command.overflowAllowed());
-		} catch (Exception e) {
-			FactionsFramework.get().logError(e);
+		this.addRequirements(ReqHasPerm.get(command.getPermission()));
+		
+		for (String reqArg : command.getRequiredArguments()) {
+			this.addArg(ARString.get(), reqArg);
+		}
+		
+		for (Entry<String, String> arg : command.getOptionalArguments().entrySet()) {
+			this.addArg(ARString.get(), arg.getKey(), arg.getKey());
 		}
 		
 		if (command.getSubCommands().size() > 0) {
