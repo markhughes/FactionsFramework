@@ -112,10 +112,12 @@ public class FactionsFramework extends JavaPlugin {
 		log("An internal error ocurred, if you're reporting this include from here until you get to the three dashes at the end ");
 		log("Factions version registered as: " + FactionsVersion.get().toString());
 		log("Factions Plugin Version: " + factionsVersion);
+		log("FactionsFramework Version: " + this.getDescription().getVersion());
 		
 		e.printStackTrace();
 		
 		log(" - - - ");
+		log("");
 		
 	}
 	
