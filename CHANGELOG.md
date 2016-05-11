@@ -8,5 +8,5 @@
 * Factions#getWarzone(World) added
 * Stability fixes for 2.8.6, 2.8.2, 2.7, 2.6
 * Supports FactionsOne (1.8)
-* Uses a much gradle module layout (less reflection now too!)
+* Uses a gradle module layout (less reflection now too!)
 * Internal changes and performance enhancements
