@@ -10,10 +10,10 @@ buildLayer () {
     gradle eclipse;
 
     # Gradles eclipse plugin adds weird slashes so this makes that a bit more tidy
-    sed -i.bak "s/<name>layers\/$1</name>/<name>FactionsFramework $1</name>/g" .project
+    #sed -i "" "s/<name>layers\/$1</name>/<name>FactionsFramework $1</name>/g" .project
 
     # fix the classpath for FactionsFramework
-    sed -i.bak "s/<classpathentry kind=\"src\" path=\"\/framework\"\/>/<classpathentry kind=\"src\" path=\"FactionsFramework\"\/>/g" .classpath
+    #sed -i "" "s/<classpathentry kind=\"src\" path=\"\/framework\"\/>/<classpathentry kind=\"src\" path=\"FactionsFramework\"\/>/g" .classpath
 
     cd ../../
 
