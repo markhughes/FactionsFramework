@@ -8,6 +8,7 @@ public enum FactionsVersion {
 	Factions_1_6,
 	Factions_1_8,
 	Factions_2_6,
+	Factions_2_7,
 	Factions_2_8_2,
 	Factions_2_8_6,
 	Factions_2_8_7,
@@ -49,7 +50,14 @@ public enum FactionsVersion {
 				try {
 					Class.forName("com.massivecraft.massivecore.cmd.arg.ARString");
 					// Only different between 2.8.2 and 2.8.6 is command versioning
-					return Factions_2_8_2;
+					
+					try {
+						Class.forName("com.massivecraft.massivecore.MassiveException");
+						return Factions_2_8_2;
+					} catch (Exception e) {
+						return Factions_2_7;
+					}
+					
 				} catch (Exception e) { }
 				
 				return Factions_2_8_6;

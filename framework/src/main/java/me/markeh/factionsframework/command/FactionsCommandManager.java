@@ -24,6 +24,9 @@ public abstract class FactionsCommandManager {
 					case Factions_2_6 :
 						instance = (FactionsCommandManager) Class.forName("me.markeh.factionsframework.layer.layer_2_6.CommandManager_2_6").newInstance();
 						break;
+					case Factions_2_7 :
+						instance = (FactionsCommandManager) Class.forName("me.markeh.factionsframework.layer.layer_2_7.CommandManager_2_7").newInstance();
+						break;
 					case Factions_2_8_2 :
 						instance = (FactionsCommandManager) Class.forName("me.markeh.factionsframework.layer.layer_2_8_2.CommandManager_2_8_2").newInstance();
 						break;

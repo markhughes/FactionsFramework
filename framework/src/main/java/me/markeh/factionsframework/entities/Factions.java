@@ -126,12 +126,12 @@ public abstract class Factions implements Handler {
 					case Factions_2_6 :
 						factionsInstance = (Factions) Class.forName("me.markeh.factionsframework.layer.layer_2_6.Factions_2_6").newInstance();
 						break;
+					case Factions_2_7:
 					case Factions_2_8_2 :
 					case Factions_2_8_6 :
 					case Factions_2_8_7 :
-						factionsInstance = (Factions) Class.forName("me.markeh.factionsframework.layer.layer_2_8_6.Factions_2_8_6").newInstance();
 					default :
-						factionsInstance = null;
+						factionsInstance = (Factions) Class.forName("me.markeh.factionsframework.layer.layer_2_8_6.Factions_2_8_6").newInstance();
 						break;
 				}
 			} catch (Exception e) {
@@ -139,7 +139,7 @@ public abstract class Factions implements Handler {
 			}
 		}
 		
-		return factionsInstance.asHandler();
+		return factionsInstance;
 	}
 	
 	// -------------------------------------------------- //

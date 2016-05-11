@@ -61,7 +61,7 @@ public abstract class JSONConf<T extends JSONConf<T>> {
 		
 		String data = new String(Files.readAllBytes(path));
 		
-		JSONConf res = (JSONConf) FactionsFramework.get().getGson().fromJson(data, getClass());
+		JSONConf<?> res = (JSONConf<?>) FactionsFramework.get().getGson().fromJson(data, getClass());
 		
 		for (Field field : res.getClass().getFields()) {
 			Field ourField;
