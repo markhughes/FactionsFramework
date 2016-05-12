@@ -12,6 +12,7 @@ public enum FactionsVersion {
 	Factions_2_8_2,
 	Factions_2_8_6,
 	Factions_2_8_7,
+	Factions_2_8_8,
 	
 	;
 	
@@ -63,8 +64,14 @@ public enum FactionsVersion {
 				return Factions_2_8_6;
 			} catch (Exception e) { }
 			
+			try {
+				Class.forName("com.massivecraft.massivecore.command.MassiveCommandHelp");
+			} catch (Exception e) {
+				return Factions_2_8_7;					
+
+			}
 			// We assume it's a more recent version of Factions 
-			return Factions_2_8_7;					
+			return Factions_2_8_8;					
 		}
 		
 		throw new Error("Please use FactionsUUID (1.6.9.5-U), FactionsOne(1.8.x), or Factions 2.5+");

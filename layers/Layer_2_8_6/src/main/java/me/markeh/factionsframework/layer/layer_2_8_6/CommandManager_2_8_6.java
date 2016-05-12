@@ -50,12 +50,12 @@ public class CommandManager_2_8_6 extends FactionsCommandManager {
 	@Override
 	public void remove(FactionsCommand command) {
 		try {
-			getCmdFactions().getClass().getMethod("removeChild", MassiveCommand.class).invoke(getCmdFactions(), command);
+			getCmdFactions().getClass().getMethod("removeChild", MassiveCommand.class).invoke(getCmdFactions(), this.cmdMap.get(command));
 			
 			this.cmdMap.remove(command);
 		} catch (Exception e1) {
 			try {
-				getCmdFactions().getClass().getMethod("removeSubCommand", MassiveCommand.class).invoke(getCmdFactions(), command);
+				getCmdFactions().getClass().getMethod("removeSubCommand", MassiveCommand.class).invoke(getCmdFactions(), this.cmdMap.get(command));
 				
 				this.cmdMap.remove(command);
 			} catch (Exception e2) {
@@ -74,8 +74,6 @@ public class CommandManager_2_8_6 extends FactionsCommandManager {
 	
 	@Override
 	public void showHelpFor(FactionsCommand command, CommandSender sender) {
-		// TODO: in the future this changes to MassiveCommandHelp:
-		//  https://github.com/MassiveCraft/MassiveCore/blob/master/src/com/massivecraft/massivecore/command/MassiveCommandHelp.java
 		HelpCommand.get().execute(sender, command.getArgs(), this.cmdMap.get(command).getChain());
 	}
 	

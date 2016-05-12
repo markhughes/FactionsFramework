@@ -1,0 +1,21 @@
+apply plugin: "java"
+apply plugin: "eclipse"
+
+group = project.property("group")
+version = project.property("version")
+sourceCompatibility = project.property("sourceversion")
+
+eclipse {
+	classpath {
+	   downloadSources=true
+	}
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile files("lib/MassiveCore-2.8.8.jar", "lib/Factions-2.8.8.jar")
+    compile project(":framework")
+}
