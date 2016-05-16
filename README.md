@@ -2,7 +2,7 @@
 
 Want more information on how you can use Factions Framework? See [the wiki](https://github.com/MarkehMe/FactionsFramework/wiki).
 
-Looking to download Factions Framework? It can be found on Spigot, Bukkit, and right here on GitHub!
+Looking to download Factions Framework? It can be found on Spigot, Bukkit, and right [here](https://github.com/MarkehMe/FactionsFramework/releases) on GitHub!
 
 [![Spigot Resources](https://www.spigotmc.org/favicon.ico "Spigot Resources") Spigot Resources](https://www.spigotmc.org/resources/factions-framework.22278/history)
 
@@ -19,7 +19,7 @@ In some cases, Factions Framework is more powerful than using the existing Facti
 Factions Framework supports Factions UUID (1.6), FactionsOne (1.8) and most versions of Factions 2.
 
 ## Compiling
-Using [gradle](http://gradle.org/) you will find project is quite simple to build.
+Using [gradle](http://gradle.org/) you will find the project is quite simple to build.
 
 ```bash
 # Clone the repo
@@ -30,10 +30,12 @@ gradle jar
 ./gradlew jar
 ```
 
+You can use the [stable tree](https://github.com/MarkehMe/FactionsFramework/tree/stable) to compile the most recent release of Factions Framework.
+
 ## Development Builds [![wercker status](https://app.wercker.com/status/92bc69512683cb678863e30e8ba82070/s "wercker status")](https://app.wercker.com/project/bykey/92bc69512683cb678863e30e8ba82070)
 
 [![wercker status](https://app.wercker.com/status/92bc69512683cb678863e30e8ba82070/m "wercker status")](https://app.wercker.com/project/bykey/92bc69512683cb678863e30e8ba82070)
 
-Development builds are not production ready and no support is guaranteed. Things could be broken (and we should assume they are). So please proceed with caution!
+Development builds are not production ready and no support is guaranteed. Things could be broken (and we should assume they are). So please proceed with caution! However, feel free to report bugs.
 
-You can grab development builds at [Wercker](https://app.wercker.com/#RedstoneOre/FactionsFramework).
+You can grab development builds at [Wercker](https://app.wercker.com/#RedstoneOre/FactionsFramework). To download development builds, go to the latest build and open the Archive artifacts step.
