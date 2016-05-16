@@ -6,7 +6,7 @@ Looking to download Factions Framework? It can be found on Spigot, Bukkit, and r
 
 [![Spigot Resources](https://www.spigotmc.org/favicon.ico "Spigot Resources") Spigot Resources](https://www.spigotmc.org/resources/factions-framework.22278/history)
 
-[![BukkitDev](http://dev.bukkit.org/media/site-favicons/0/7/favicon.ico "BukkitDev") BukkitDev](https://www.spigotmc.org/resources/factions-framework.22278/history)
+[![BukkitDev](http://dev.bukkit.org/media/site-favicons/0/7/favicon.ico "BukkitDev") BukkitDev](http://dev.bukkit.org/bukkit-plugins/factionsframework/files/)
 
 ## What is Factions Framework?
 

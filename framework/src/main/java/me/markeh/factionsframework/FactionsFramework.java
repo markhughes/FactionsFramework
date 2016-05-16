@@ -63,7 +63,7 @@ public class FactionsFramework extends JavaPlugin {
 	// -------------------------------------------------- //
 	// ENABLE  
 	// -------------------------------------------------- //
-
+	
 	@Override
 	public final void onEnable() {
 		// Load our config by running get()
@@ -92,6 +92,7 @@ public class FactionsFramework extends JavaPlugin {
 	// DISABLE  
 	// -------------------------------------------------- //
 	
+	@Override
 	public final void onDisable() {
 		// Unregister our events layer 
 		HandlerList.unregisterAll(EventsLayer.get());
