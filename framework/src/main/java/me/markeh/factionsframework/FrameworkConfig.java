@@ -22,7 +22,7 @@ public class FrameworkConfig extends JSONConf<FrameworkConfig> {
 				instance.loadFrom(configPath);
 				instance.save();
 			} catch (IOException e) {
-				FactionsFramework.get().logError(e);
+				FactionsFramework.get().err(e);
 			}
 		}
 		
@@ -44,7 +44,7 @@ public class FrameworkConfig extends JSONConf<FrameworkConfig> {
 		try {
 			return this.saveTo(configPath);
 		} catch (IOException e) {
-			FactionsFramework.get().logError(e);
+			FactionsFramework.get().err(e);
 		}
 		
 		return false;

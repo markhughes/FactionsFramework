@@ -40,7 +40,7 @@ public class Command_2_8_6 extends com.massivecraft.factions.cmd.FactionsCommand
 			}
 			
 		} catch (Exception e) {
-			FactionsFramework.get().logError(e);
+			FactionsFramework.get().err(e);
 		}
 		
 		this.overflowSensitive = ! command.overflowAllowed();			
@@ -70,7 +70,7 @@ public class Command_2_8_6 extends com.massivecraft.factions.cmd.FactionsCommand
 		try {
 			command.executeWith(info);
 		} catch (Exception e) {
-			FactionsFramework.get().logError(e);
+			FactionsFramework.get().err(e);
 		}
 	}
 	

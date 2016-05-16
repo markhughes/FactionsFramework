@@ -41,8 +41,8 @@ public class CommandManager_2_8_6 extends FactionsCommandManager {
 				this.getCmdFactions().getClass().getMethod("addSubCommand", MassiveCommand.class).invoke(getCmdFactions(), nativeCommand);
 			} catch (Exception e2) {
 				this.cmdMap.remove(command);
-				FactionsFramework.get().logError(e1);
-				FactionsFramework.get().logError(e2);
+				FactionsFramework.get().err(e1);
+				FactionsFramework.get().err(e2);
 			}
 		}
 	}
@@ -59,8 +59,8 @@ public class CommandManager_2_8_6 extends FactionsCommandManager {
 				
 				this.cmdMap.remove(command);
 			} catch (Exception e2) {
-				FactionsFramework.get().logError(e1);
-				FactionsFramework.get().logError(e2);
+				FactionsFramework.get().err(e1);
+				FactionsFramework.get().err(e2);
 			}
 		}		
 	}
@@ -94,7 +94,7 @@ public class CommandManager_2_8_6 extends FactionsCommandManager {
 				this.cmdFactionsInstance = (com.massivecraft.factions.cmd.CmdFactions) field.get(factionsInstance);
 				
 			} catch(Exception e) {
-				FactionsFramework.get().logError(e);
+				FactionsFramework.get().err(e);
 				return null;
 			}
 		}

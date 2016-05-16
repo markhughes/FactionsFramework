@@ -52,7 +52,7 @@ public class CommandManager_2_8_2 extends FactionsCommandManager {
 		try {
 			HelpCommand.get().execute(sender, command.getArgs(), this.cmdMap.get(command).getCommandChain());
 		} catch (Exception e) {
-			FactionsFramework.get().logError(e);
+			FactionsFramework.get().err(e);
 		}
 	}
 	

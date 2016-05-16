@@ -209,7 +209,7 @@ public class Faction_2_8_6 extends Messenger implements Faction {
 			try {
 				this.factioncoll_instance = (FactionColl) FactionColl.class.getMethod("get").invoke(this);
 			} catch (Exception e) {
-				FactionsFramework.get().logError(e);
+				FactionsFramework.get().err(e);
 			}
 		}
 		

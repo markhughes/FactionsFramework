@@ -58,6 +58,7 @@ public class FactionsFramework extends JavaPlugin {
 	// -------------------------------------------------- //
 	
 	private Gson gson = new GsonBuilder().setPrettyPrinting().create();
+	private LogUtil logUtil = new LogUtil(this, ChatColor.AQUA);
 	
 	// -------------------------------------------------- //
 	// ENABLE  
@@ -77,7 +78,7 @@ public class FactionsFramework extends JavaPlugin {
 		try {
 			new Metrics(this).enable();
 		} catch (IOException e) {
-			this.logError(e);
+			this.err(e);
 		}
 		
 		log("Factions version is: " + FactionsVersion.get().toString());
@@ -106,23 +107,12 @@ public class FactionsFramework extends JavaPlugin {
 	// METHODS  
 	// -------------------------------------------------- //
 	
-	public final void logError(Exception e) {
-		String factionsVersion = this.getServer().getPluginManager().getPlugin("Factions").getDescription().getVersion();
-		
-		log("An internal error ocurred, if you're reporting this include from here until you get to the three dashes at the end ");
-		log("Factions version registered as: " + FactionsVersion.get().toString());
-		log("Factions Plugin Version: " + factionsVersion);
-		log("FactionsFramework Version: " + this.getDescription().getVersion());
-		
-		e.printStackTrace();
-		
-		log(" - - - ");
-		log("");
-		
+	public final void err(Exception e) {
+		this.logUtil.err(e);
 	}
 	
 	public final void log(String...msgs) {
-		for (String msg : msgs) this.getServer().getConsoleSender().sendMessage(ChatColor.DARK_AQUA + "[" + ChatColor.AQUA + "FactionsFramework" + ChatColor.DARK_AQUA + "] " + ChatColor.WHITE + msg);
+		for (String msg : msgs) this.logUtil.log(msg);
 	}
 	
 	public final Gson getGson() {
@@ -151,6 +141,17 @@ public class FactionsFramework extends JavaPlugin {
 	public final FPlayers getFPlayers() {
 		Deprecation.showDeprecationWarningForMethod("FactionsFramework#getFPlayers");
 		return ((FPlayers) Factions.getHandler());
+	}
+	
+	/**
+	 * Log an error
+	 * 
+	 * @deprecated to be removed on 16/12/2016
+	 * Use the err method instead 
+	 */
+	@Deprecated
+	public final void logError(Exception e) {
+		this.logUtil.err(e);
 	}
 	
 }

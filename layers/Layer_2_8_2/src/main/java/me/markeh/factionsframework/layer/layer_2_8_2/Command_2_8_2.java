@@ -63,7 +63,7 @@ public class Command_2_8_2 extends com.massivecraft.factions.cmd.FactionsCommand
 		try {
 			command.executeWith(info);
 		} catch (Exception e) {
-			FactionsFramework.get().logError(e);
+			FactionsFramework.get().err(e);
 		}
 	}
 	

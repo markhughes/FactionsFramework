@@ -30,7 +30,7 @@ public abstract class JSONConf<T extends JSONConf<T>> {
 			try {
 				sb.append(field.getName() + "=" + field.get(this.getClass()).toString());
 			} catch (Exception e) {
-				FactionsFramework.get().logError(e);
+				FactionsFramework.get().err(e);
 			}
 		}
 		
