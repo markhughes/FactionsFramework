@@ -1,6 +1,8 @@
 package me.markeh.factionsframework.layer.layer_2_7;
 
 
+import java.util.Map.Entry;
+
 import me.markeh.factionsframework.FactionsFramework;
 import me.markeh.factionsframework.command.FactionsCommand;
 import me.markeh.factionsframework.command.FactionsCommandInformation;
@@ -25,8 +27,14 @@ public class Command_2_7 extends com.massivecraft.factions.cmd.FactionsCommand i
 		this.aliases.addAll(command.getAliases());
 		this.setDesc(command.getDescription());
 		
-		this.optionalArgs.putAll(command.getOptionalArguments());
-		this.requiredArgs.addAll(command.getOptionalArguments().keySet());
+		for (String arg : command.getRequiredArguments()) {
+			this.addRequiredArg(arg);
+		}
+		
+		for (Entry<String, String> arg : command.getOptionalArguments().entrySet()) {
+			this.addOptionalArg(arg.getKey(), arg.getValue());
+		}
+		
 		this.errorOnToManyArgs = ! this.command.overflowAllowed();
 		
 		if (command.getSubCommands().size() > 0) {
