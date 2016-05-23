@@ -19,5 +19,8 @@ deploy:
         name: Run gradle
         code: ./gradlew -Sq --parallel --project-cache-dir=$WERCKER_CACHE_DIR jar
     - script:
+        name: Create Maven requirements
+        code: ./gradlew -Sq --parallel --project-cache-dir=$WERCKER_CACHE_DIR createPom sourcesJar javadocJar
+    - script:
         name: Deploy to bintray
         code: ./gradlew -Sq --parallel --project-cache-dir=$WERCKER_CACHE_DIR bintray
