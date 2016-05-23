@@ -92,7 +92,7 @@ task createPom << {
                 }
             }
         }
-    }.writeTo("pom.xml")
+    }.writeTo("build/libs/pom.xml")
 }
 
 // Create sources jar
