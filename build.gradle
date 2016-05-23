@@ -1,3 +1,5 @@
+import org.apache.tools.ant.filters.*
+
 plugins {
     id "com.jfrog.bintray" version "1.5"
 }
@@ -31,6 +33,13 @@ allprojects {
     }
 
     mainClassName = "me.markeh.factionsframework.FactionsFramework"
+
+    processResources {
+        filter ReplaceTokens, tokens: [
+            "version": project.property("version")
+        ]
+    }
+
 }
 
 task copyResources {
@@ -75,11 +84,12 @@ bintray {
 		repo = 'maven'
 		name = 'FactionsFramework'
 		desc = ''
+        userOrg = "redstoneore"
 		licenses = ['GPL-3.0']
 		vcsUrl = 'https://github.com/MarkehMe/FactionsFramework.git'
 		publicDownloadNumbers = false
 		version {
-			name = "FactionsFramework-$version";
+			name = "FactionsFramework-" + project.property('version');
 			desc = 'Build a Factions plugin for every version of Factions and not have to worry about version upgrades and changes.'
 			vcsTag = project.property('version')
 			attributes = ['gradle-plugin': 'com.use.less:com.use.less.gradle:gradle-useless-plugin']
