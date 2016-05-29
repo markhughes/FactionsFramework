@@ -30,6 +30,10 @@ public abstract class ConfLayer {
 		return layer;
 	}
 	
+	public static void overrideConfLayer(ConfLayer confLayer) {
+		layer = confLayer;
+	}
+	
 	// -------------------------------------------------- //
 	// ABSTRACT METHODS
 	// -------------------------------------------------- //

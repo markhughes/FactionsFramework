@@ -143,6 +143,10 @@ public abstract class Factions implements Handler {
 		return factionsInstance;
 	}
 	
+	public static void overrideHandler(Handler handler) {
+		factionsInstance = handler;
+	}
+	
 	// -------------------------------------------------- //
 	// ABSTRACT METHODS  
 	// -------------------------------------------------- //

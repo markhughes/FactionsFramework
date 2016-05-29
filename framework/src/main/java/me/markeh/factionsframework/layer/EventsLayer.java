@@ -47,4 +47,8 @@ public abstract class EventsLayer implements Listener {
 		return layer;
 	}
 	
+	public static void overrideEventsLayer(EventsLayer eventsLayer) {
+		layer = eventsLayer;
+	}
+	
 }

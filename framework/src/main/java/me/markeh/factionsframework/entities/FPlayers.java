@@ -53,6 +53,10 @@ public abstract class FPlayers implements Handler {
 		return fplayersInstance.asHandler();
 	}
 	
+	public static void overrideHandler(Handler handler) {
+		fplayersInstance = handler;
+	}
+	
 	// -------------------------------------------------- //
 	// ABSTRACT METHODS  
 	// -------------------------------------------------- //
