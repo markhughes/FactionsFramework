@@ -36,3 +36,6 @@ By creating a pull request you accept that your code is being added under the
 
 Please also squash your commits and keep each feature as a separate commit. This
 way we can prevent having lines of unnecessary commits.
+
+It is suggested that you [sign your commits](https://help.github.com/articles/signing-commits-using-gpg/)
+when possible. 
