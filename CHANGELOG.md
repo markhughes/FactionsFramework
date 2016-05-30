@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.1.2
+## 1.2.0
 
-* Using new LogUtil
-* Minor improvements 
+* Fixed event layer support for 2_7
+* Added override methods 
