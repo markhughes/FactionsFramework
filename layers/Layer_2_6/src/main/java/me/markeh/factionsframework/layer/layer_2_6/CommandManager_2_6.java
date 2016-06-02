@@ -41,7 +41,7 @@ public class CommandManager_2_6 extends FactionsCommandManager {
 		try {
 			getCmdFactions().getClass().getMethod("addSubCommand", Class.forName("com.massivecraft.massivecore.cmd.MassiveCommand")).invoke(getCmdFactions(), originalCommand);
 		} catch (Exception e) {
-			FactionsFramework.get().logError(e);
+			FactionsFramework.get().err(e);
 		}
 	}
 
@@ -94,7 +94,7 @@ public class CommandManager_2_6 extends FactionsCommandManager {
 				this.factionsInstance = (com.massivecraft.factions.cmd.CmdFactions) field.get(factions);
 
 			} catch(Exception e) {
-				FactionsFramework.get().logError(e);
+				FactionsFramework.get().err(e);
 				return null;
 			}
 		}

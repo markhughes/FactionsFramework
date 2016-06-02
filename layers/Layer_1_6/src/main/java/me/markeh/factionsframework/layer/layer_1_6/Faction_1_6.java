@@ -1,6 +1,7 @@
 package me.markeh.factionsframework.layer.layer_1_6;
 
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -98,8 +99,13 @@ public class Faction_1_6 extends Messenger implements Faction {
 	}
 
 	@Override
+	public Optional<FPlayer> leader() {
+		return (Optional.of(FPlayers.getById(this.faction.getFPlayerAdmin().getId())));
+	}
+	
+	@Override
 	public FPlayer getLeader() {
-		return FPlayers.getById(this.faction.getFPlayerAdmin().getId());
+		return this.leader().get();
 	}
 
 	@Override
@@ -192,4 +198,5 @@ public class Faction_1_6 extends Messenger implements Faction {
 		
 		return true;
 	}
+
 }

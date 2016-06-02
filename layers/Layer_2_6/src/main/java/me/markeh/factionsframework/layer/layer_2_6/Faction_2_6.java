@@ -1,7 +1,7 @@
 package me.markeh.factionsframework.layer.layer_2_6;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -13,7 +13,6 @@ import com.massivecraft.factions.entity.FactionColl;
 import com.massivecraft.factions.entity.FactionColls;
 import com.massivecraft.factions.entity.UPlayer;
 
-import me.markeh.factionsframework.FactionsFramework;
 import me.markeh.factionsframework.entities.FPlayer;
 import me.markeh.factionsframework.entities.FPlayers;
 import me.markeh.factionsframework.entities.Faction;
@@ -72,7 +71,7 @@ public class Faction_2_6 extends Messenger implements Faction {
 	public Set<FPlayer> getMembers() {
 		Set<FPlayer> members = new TreeSet<FPlayer>();
 		
-		for (UPlayer uplayer : this.getUPlayers()) {
+		for (UPlayer uplayer : this.faction.getUPlayers()) {
 			members.add(FPlayers.getById(uplayer.getId()));
 		}
 		
@@ -86,7 +85,7 @@ public class Faction_2_6 extends Messenger implements Faction {
 		ArrayList<Rel> relsList = new ArrayList<Rel>();
 		for (Rel rel : rels) relsList.add(rel);
 		
-		for (UPlayer uplayer : this.getUPlayers()) {
+		for (UPlayer uplayer : this.faction.getUPlayers()) {
 			FPlayer fplayer = FPlayers.getById(uplayer.getId());
 			
 			if (relsList.contains(fplayer.getRole())) members.add(fplayer);
@@ -100,7 +99,7 @@ public class Faction_2_6 extends Messenger implements Faction {
 	public Set<FPlayer> getOfficers() {
 		Set<FPlayer> officers = new TreeSet<FPlayer>();
 		
-		for (UPlayer uplayer : this.getUPlayers()) {
+		for (UPlayer uplayer : this.faction.getUPlayers()) {
 			if (uplayer.getRole() != com.massivecraft.factions.Rel.OFFICER) continue;
 			
 			officers.add(FPlayers.getById(uplayer.getId()));
@@ -110,8 +109,13 @@ public class Faction_2_6 extends Messenger implements Faction {
 	}
 
 	@Override
+	public Optional<FPlayer> leader() {
+		return Optional.of(FPlayers.getById(this.faction.getLeader().getId()));
+	}
+	
+	@Override
 	public FPlayer getLeader() {
-		return FPlayers.getById(this.faction.getLeader().getId());
+		return this.leader().get();
 	}
 
 	@Override
@@ -171,7 +175,7 @@ public class Faction_2_6 extends Messenger implements Faction {
 
 	@Override
 	public boolean isPermanentFaction() {
-		return this.getFlag(FFlag.PERMANENT);
+		return this.faction.getFlag(FFlag.PERMANENT);
 	}
 
 	@Override
@@ -186,7 +190,7 @@ public class Faction_2_6 extends Messenger implements Faction {
 
 	@Override
 	public Boolean quiteDisband() {
-		if (this.getFlag(FFlag.PERMANENT)) return false;
+		if (this.faction.getFlag(FFlag.PERMANENT)) return false;
 		
 		EventFactionsDisband event = new EventFactionsDisband(this);
 		event.call();
@@ -208,32 +212,6 @@ public class Faction_2_6 extends Messenger implements Faction {
 	public Boolean isValid() {
 		if (this.faction == null) return false;
 		return true;
-	}
-
-	
-	// -------------------------------------------------- //
-	// UTILS
-	// -------------------------------------------------- //
-
-	@SuppressWarnings("unchecked")
-	public List<UPlayer> getUPlayers() {
-		try {
-			return (List<UPlayer>) this.faction.getClass().getMethod("getUPlayers").invoke(this);
-		} catch (Exception e) {
-			FactionsFramework.get().logError(e);
-		}
-		
-		return null;
-	}
-
-	public Boolean getFlag(FFlag flag) {
-		try {
-			return (Boolean) this.faction.getClass().getMethod("getFlag", FFlag.class).invoke(this.faction, this);
-		} catch (Exception e) {
-			FactionsFramework.get().logError(e);
-		}
-		
-		return null;
 	}
 	
 }

@@ -58,7 +58,7 @@ public class Command_2_6 extends FCommand implements CommandBase {
 		try {
 			command.executeWith(info);
 		} catch (Exception e) {
-			FactionsFramework.get().logError(e);
+			FactionsFramework.get().err(e);
 		}
 	}
 
