@@ -2,9 +2,10 @@ package me.markeh.factionsframework.command;
 
 import org.bukkit.command.CommandSender;
 
+import me.markeh.factionsframework.entities.Handler;
 import me.markeh.factionsframework.enums.FactionsVersion;
 
-public abstract class FactionsCommandManager {
+public abstract class FactionsCommandManager implements Handler {
 	
 	// -------------------------------------------------- //
 	// CONSTRUCT
@@ -38,7 +39,10 @@ public abstract class FactionsCommandManager {
 						instance = (FactionsCommandManager) Class.forName("me.markeh.factionsframework.layer.layer_2_8_8.CommandManager_2_8_8").newInstance();
 						break;
 					default :
-						instance = null;
+					case Factions_2_8_16 :
+						instance = (FactionsCommandManager) Class.forName("me.markeh.factionsframework.layer.layer_2_8_16.CommandManager_2_8_16").newInstance();
+//						FactionsFramework.get().log("[FactionsCommandManager] No CommandManager for version?");
+//						instance = null;
 						break;
 				}
 			} catch (Exception e) {
@@ -47,6 +51,10 @@ public abstract class FactionsCommandManager {
 		}
 		
 		return instance;
+	}
+	
+	public static void overrideHandler(Handler handler) {
+		instance = (FactionsCommandManager) handler;
 	}
 	
 	// -------------------------------------------------- //

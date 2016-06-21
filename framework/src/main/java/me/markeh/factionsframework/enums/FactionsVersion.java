@@ -1,7 +1,8 @@
 package me.markeh.factionsframework.enums;
 
-import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
+
+import me.markeh.factionsframework.FactionsFramework;
 
 public enum FactionsVersion {
 	
@@ -13,6 +14,7 @@ public enum FactionsVersion {
 	Factions_2_8_6,
 	Factions_2_8_7,
 	Factions_2_8_8,
+	Factions_2_8_16,
 	
 	;
 	
@@ -24,7 +26,7 @@ public enum FactionsVersion {
 	
 	private static FactionsVersion determine() {
 		// Fetch the Factions plugin and ensure it exists 
-		Plugin factionsPlugin = Bukkit.getPluginManager().getPlugin("Factions");
+		Plugin factionsPlugin = FactionsFramework.get().getServer().getPluginManager().getPlugin("Factions");
 		
 		String factionsVersion = factionsPlugin.getDescription().getVersion();
 		
@@ -37,6 +39,14 @@ public enum FactionsVersion {
 		} else if (factionsVersion.startsWith("2.")) {
 			// Is a 2.x variation, however there are lots of changes through these
 			// minor releases we can use to determine the version.
+			
+			// Factions >= 2.8.15 has new TypeDamageModifier
+			try {
+				Class.forName("com.massivecraft.massivecore.command.type.enumeration.TypeDamageModifier");
+				return Factions_2_8_16;
+			} catch (Exception e) { }
+			
+			// must be an older version .. 
 			
 			try {
 				// Factions Versions <= 2.6 use the universe system (or is unsupported) 
