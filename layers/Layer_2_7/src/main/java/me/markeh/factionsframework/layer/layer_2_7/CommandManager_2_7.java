@@ -16,6 +16,7 @@ import com.massivecraft.massivecore.cmd.MassiveCommand;
 import me.markeh.factionsframework.FactionsFramework;
 import me.markeh.factionsframework.command.FactionsCommand;
 import me.markeh.factionsframework.command.FactionsCommandManager;
+import me.markeh.factionsframework.entities.Handler;
 
 public class CommandManager_2_7 extends FactionsCommandManager {
 	
@@ -106,6 +107,11 @@ public class CommandManager_2_7 extends FactionsCommandManager {
 		}
 		
 		return this.cmdFactionsInstance;
+	}
+
+	@Override
+	public Handler asHandler() {
+		return this;
 	}
 	
 }

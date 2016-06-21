@@ -11,6 +11,7 @@ import com.massivecraft.massivecore.command.MassiveCommandHelp;
 
 import me.markeh.factionsframework.command.FactionsCommand;
 import me.markeh.factionsframework.command.FactionsCommandManager;
+import me.markeh.factionsframework.entities.Handler;
 
 public class CommandManager_2_8_8 extends FactionsCommandManager {
 
@@ -48,6 +49,11 @@ public class CommandManager_2_8_8 extends FactionsCommandManager {
 	@Override
 	public void showHelpFor(FactionsCommand command, CommandSender sender) {
 		MassiveCommandHelp.get().execute(sender, command.getArgs(), this.cmdMap.get(command).getChain());
+	}
+
+	@Override
+	public Handler asHandler() {
+		return this;
 	}
 
 }

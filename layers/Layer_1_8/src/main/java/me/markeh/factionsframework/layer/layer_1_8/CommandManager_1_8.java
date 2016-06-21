@@ -10,6 +10,7 @@ import com.massivecraft.factions.P;
 
 import me.markeh.factionsframework.command.FactionsCommand;
 import me.markeh.factionsframework.command.FactionsCommandManager;
+import me.markeh.factionsframework.entities.Handler;
 
 public class CommandManager_1_8 extends FactionsCommandManager {
 	
@@ -47,6 +48,11 @@ public class CommandManager_1_8 extends FactionsCommandManager {
 	@Override
 	public void showHelpFor(FactionsCommand command, CommandSender sender) {
 		P.p.cmdAutoHelp.execute(sender, command.getArgs());
+	}
+
+	@Override
+	public Handler asHandler() {
+		return this;
 	}
 	
 }

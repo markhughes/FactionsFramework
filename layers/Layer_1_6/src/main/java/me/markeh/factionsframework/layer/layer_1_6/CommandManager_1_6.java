@@ -13,6 +13,7 @@ import com.massivecraft.factions.integration.Econ;
 
 import me.markeh.factionsframework.command.FactionsCommand;
 import me.markeh.factionsframework.command.FactionsCommandManager;
+import me.markeh.factionsframework.entities.Handler;
 
 public class CommandManager_1_6 extends FactionsCommandManager {
 	
@@ -113,6 +114,11 @@ public class CommandManager_1_6 extends FactionsCommandManager {
 			P.p.cmdBase.cmdHelp.helpPages.add(lines);
 			page++;
 		}
+	}
+
+	@Override
+	public Handler asHandler() {
+		return this;
 	}
 	
 }
