@@ -81,7 +81,7 @@ public class FactionsFramework extends JavaPlugin {
 			this.err(e);
 		}
 		
-		log("Factions version is: " + FactionsVersion.get().toString());
+		log("Factions API version is: " + FactionsVersion.get().toString());
 		
 		if (LoadBase.get() != null) {
 			LoadBase.get().enabled();
