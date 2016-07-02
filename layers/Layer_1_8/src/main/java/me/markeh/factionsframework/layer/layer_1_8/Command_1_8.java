@@ -25,7 +25,7 @@ public class Command_1_8 extends FCommand implements CommandBase {
 		
 		this.aliases.addAll(command.getAliases());
 		
-		this.requiredArgs.addAll(command.getOptionalArguments().keySet());
+		this.requiredArgs.addAll(command.getRequiredArguments());
 		this.optionalArgs.putAll(command.getOptionalArguments());
 		
 		this.permission = command.getPermission();
