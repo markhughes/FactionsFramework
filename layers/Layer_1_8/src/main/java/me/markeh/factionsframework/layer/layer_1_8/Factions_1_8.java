@@ -79,7 +79,7 @@ public class Factions_1_8  extends Factions {
 	public Faction getFactionSafeZone(World world) {
 		if (this.safezoneId == null) this.safezoneId = com.massivecraft.factions.Factions.i.get("-1").getId();
 		
-		return this.get(this.warzoneId);
+		return this.get(this.safezoneId);
 	}
 	
 	@Override
