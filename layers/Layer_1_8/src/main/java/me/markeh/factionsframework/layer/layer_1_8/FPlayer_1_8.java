@@ -1,5 +1,7 @@
 package me.markeh.factionsframework.layer.layer_1_8;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Collection;
 
 import org.bukkit.Bukkit;
@@ -187,6 +189,17 @@ public class FPlayer_1_8 extends Messenger implements FPlayer {
 	}
 
 	@Override
+	public void setPower(Double power) {
+		try {
+			Method method = this.factionsfplayer.getClass().getDeclaredMethod("alterPower", double.class);
+			method.setAccessible(true);
+			method.invoke(this.factionsfplayer, power);
+		} catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
 	public boolean tryClaim(Faction faction, Location location) {
 		return this.factionsfplayer.attemptClaim(com.massivecraft.factions.Factions.i.get(faction.getId()), location, true);
 	}
@@ -198,5 +211,10 @@ public class FPlayer_1_8 extends Messenger implements FPlayer {
 		}
 		return true;
 	}
-	
+
+	@Override
+	public boolean isUsingAdminMode() {
+		return this.factionsfplayer.hasAdminMode();
+	}
+
 }

@@ -169,6 +169,11 @@ public class FPlayer_2_8_6 extends Messenger implements FPlayer {
 	}
 
 	@Override
+	public void setPower(Double power) {
+		this.mplayer.setPower(power);
+	}
+
+	@Override
 	public boolean tryClaim(Faction faction, Location location) {
 		Collection<PS> locationsCol = new ArrayList<PS>();
 		locationsCol.add(PS.valueOf(location));
@@ -185,5 +190,10 @@ public class FPlayer_2_8_6 extends Messenger implements FPlayer {
 		
 		return this.mplayer.tryClaim(FactionColl.get().get(faction.getId()), locationsCol);
 	}
-	
+
+	@Override
+	public boolean isUsingAdminMode() {
+		return this.mplayer.isUsingAdminMode();
+	}
+
 }

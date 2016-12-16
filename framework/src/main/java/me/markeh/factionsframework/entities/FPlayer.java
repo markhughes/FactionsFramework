@@ -49,9 +49,13 @@ public interface FPlayer {
 	public double getPower();
 	
 	public int getPowerRounded();
+
+	public void setPower(Double power);
 	
 	public boolean tryClaim(Faction faction, Location location);
 	
 	public boolean tryClaim(Faction faction, Collection<Location> locations);
+
+	public boolean isUsingAdminMode();
 	
 }

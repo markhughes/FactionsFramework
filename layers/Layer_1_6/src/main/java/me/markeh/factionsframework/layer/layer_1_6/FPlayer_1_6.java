@@ -184,6 +184,11 @@ public class FPlayer_1_6 extends Messenger implements FPlayer {
 	}
 
 	@Override
+	public void setPower(Double power) {
+		this.factionsfplayer.alterPower(power - this.getPower());
+	}
+
+	@Override
 	public boolean tryClaim(Faction faction, Location location) {
 		return this.factionsfplayer.attemptClaim(com.massivecraft.factions.Factions.getInstance().getFactionById(faction.getId()), location, true);
 	}
@@ -195,5 +200,11 @@ public class FPlayer_1_6 extends Messenger implements FPlayer {
 		}
 		return true;
 	}
-	
+
+	@Override
+	public boolean isUsingAdminMode() {
+		return this.factionsfplayer.isAdminBypassing();
+	}
+
+
 }
