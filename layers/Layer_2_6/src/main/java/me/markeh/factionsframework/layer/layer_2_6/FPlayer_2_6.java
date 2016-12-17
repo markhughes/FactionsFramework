@@ -168,6 +168,11 @@ public class FPlayer_2_6 extends Messenger implements FPlayer {
 	}
 
 	@Override
+	public void setPower(Double power) {
+		this.uplayer.setPower(power);
+	}
+
+	@Override
 	public boolean tryClaim(Faction faction, Location location) {
 		return this.uplayer.tryClaim(FactionColls.get().get2(faction.getId()), PS.valueOf(location), false, false);
 	}
@@ -179,5 +184,10 @@ public class FPlayer_2_6 extends Messenger implements FPlayer {
 		}
 		return true;
 	}
-	
+
+	@Override
+	public boolean isUsingAdminMode() {
+		return this.uplayer.isUsingAdminMode();
+	}
+
 }
