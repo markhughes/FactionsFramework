@@ -1,3 +1,7 @@
+# New Developer
+
+Since Mark cannot continue with updating framework, I will be taking over and giving it all the love it needs. It is truly a great plugin!
+
 # Factions Framework
 
 Want more information on how you can use Factions Framework? See [the wiki](https://github.com/MarkehMe/FactionsFramework/wiki).
