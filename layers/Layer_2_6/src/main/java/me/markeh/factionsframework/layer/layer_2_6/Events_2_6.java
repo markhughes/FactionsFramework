@@ -1,6 +1,7 @@
 package me.markeh.factionsframework.layer.layer_2_6;
 
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -106,7 +107,7 @@ public class Events_2_6 extends EventsLayer {
 		Chunk chunk = event.getChunk().asBukkitChunk();
 		
 		// Grab all the information for the event 
-		Set<Chunk> chunks = new TreeSet<Chunk>();
+		Set<Chunk> chunks = new HashSet<Chunk>();
 		chunks.add(chunk);
 		
 		Faction newFaction = Factions.getById(event.getNewFaction().getId());

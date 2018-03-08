@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/FactionsFramework.iml" filepath="$PROJECT_DIR$/FactionsFramework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/FactionsFramework_main.iml" filepath="$PROJECT_DIR$/.idea/modules/FactionsFramework_main.iml" group="FactionsFramework" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/FactionsFramework_test.iml" filepath="$PROJECT_DIR$/.idea/modules/FactionsFramework_test.iml" group="FactionsFramework" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/framework/framework.iml" filepath="$PROJECT_DIR$/.idea/modules/framework/framework.iml" group="framework" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/framework/framework_main.iml" filepath="$PROJECT_DIR$/.idea/modules/framework/framework_main.iml" group="framework" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/framework/framework_test.iml" filepath="$PROJECT_DIR$/.idea/modules/framework/framework_test.iml" group="framework" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/layers/Layer_1_6/layers_Layer_1_6.iml" filepath="$PROJECT_DIR$/.idea/modules/layers/Layer_1_6/layers_Layer_1_6.iml" group="layers/Layer_1_6" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/layers/Layer_1_6/layers_Layer_1_6_main.iml" filepath="$PROJECT_DIR$/.idea/modules/layers/Layer_1_6/layers_Layer_1_6_main.iml" group="layers/Layer_1_6" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/layers/Layer_1_6/layers_Layer_1_6_test.iml" filepath="$PROJECT_DIR$/.idea/modules/layers/Layer_1_6/layers_Layer_1_6_test.iml" group="layers/Layer_1_6" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/layers/Layer_1_8/layers_Layer_1_8.iml" filepath="$PROJECT_DIR$/.idea/modules/layers/Layer_1_8/layers_Layer_1_8.iml" group="layers/Layer_1_8" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/layers/Layer_1_8/layers_Layer_1_8_main.iml" filepath="$PROJECT_DIR$/.idea/modules/layers/Layer_1_8/layers_Layer_1_8_main.iml" group="layers/Layer_1_8" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/layers/Layer_1_8/layers_Layer_1_8_test.iml" filepath="$PROJECT_DIR$/.idea/modules/layers/Layer_1_8/layers_Layer_1_8_test.iml" group="layers/Layer_1_8" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/layers/Layer_2_6/layers_Layer_2_6.iml" filepath="$PROJECT_DIR$/.idea/modules/layers/Layer_2_6/layers_Layer_2_6.iml" group="layers/Layer_2_6" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/layers/Layer_2_6/layers_Layer_2_6_main.iml" filepath="$PROJECT_DIR$/.idea/modules/layers/Layer_2_6/layers_Layer_2_6_main.iml" group="layers/Layer_2_6" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/layers/Layer_2_6/layers_Layer_2_6_test.iml" filepath="$PROJECT_DIR$/.idea/modules/layers/Layer_2_6/layers_Layer_2_6_test.iml" group="layers/Layer_2_6" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/layers/Layer_2_7/layers_Layer_2_7.iml" filepath="$PROJECT_DIR$/.idea/modules/layers/Layer_2_7/layers_Layer_2_7.iml" group="layers/Layer_2_7" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/layers/Layer_2_7/layers_Layer_2_7_main.iml" filepath="$PROJECT_DIR$/.idea/modules/layers/Layer_2_7/layers_Layer_2_7_main.iml" group="layers/Layer_2_7" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/layers/Layer_2_7/layers_Layer_2_7_test.iml" filepath="$PROJECT_DIR$/.idea/modules/layers/Layer_2_7/layers_Layer_2_7_test.iml" group="layers/Layer_2_7" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/layers/Layer_2_8_15X/layers_Layer_2_8_15X.iml" filepath="$PROJECT_DIR$/.idea/modules/layers/Layer_2_8_15X/layers_Layer_2_8_15X.iml" group="layers/Layer_2_8_15X" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/layers/Layer_2_8_15X/layers_Layer_2_8_15X_main.iml" filepath="$PROJECT_DIR$/.idea/modules/layers/Layer_2_8_15X/layers_Layer_2_8_15X_main.iml" group="layers/Layer_2_8_15X" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/layers/Layer_2_8_15X/layers_Layer_2_8_15X_test.iml" filepath="$PROJECT_DIR$/.idea/modules/layers/Layer_2_8_15X/layers_Layer_2_8_15X_test.iml" group="layers/Layer_2_8_15X" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/layers/Layer_2_8_2/layers_Layer_2_8_2.iml" filepath="$PROJECT_DIR$/.idea/modules/layers/Layer_2_8_2/layers_Layer_2_8_2.iml" group="layers/Layer_2_8_2" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/layers/Layer_2_8_2/layers_Layer_2_8_2_main.iml" filepath="$PROJECT_DIR$/.idea/modules/layers/Layer_2_8_2/layers_Layer_2_8_2_main.iml" group="layers/Layer_2_8_2" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/layers/Layer_2_8_2/layers_Layer_2_8_2_test.iml" filepath="$PROJECT_DIR$/.idea/modules/layers/Layer_2_8_2/layers_Layer_2_8_2_test.iml" group="layers/Layer_2_8_2" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/layers/Layer_2_8_6/layers_Layer_2_8_6.iml" filepath="$PROJECT_DIR$/.idea/modules/layers/Layer_2_8_6/layers_Layer_2_8_6.iml" group="layers/Layer_2_8_6" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/layers/Layer_2_8_6/layers_Layer_2_8_6_main.iml" filepath="$PROJECT_DIR$/.idea/modules/layers/Layer_2_8_6/layers_Layer_2_8_6_main.iml" group="layers/Layer_2_8_6" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/layers/Layer_2_8_6/layers_Layer_2_8_6_test.iml" filepath="$PROJECT_DIR$/.idea/modules/layers/Layer_2_8_6/layers_Layer_2_8_6_test.iml" group="layers/Layer_2_8_6" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/layers/Layer_2_8_8/layers_Layer_2_8_8.iml" filepath="$PROJECT_DIR$/.idea/modules/layers/Layer_2_8_8/layers_Layer_2_8_8.iml" group="layers/Layer_2_8_8" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/layers/Layer_2_8_8/layers_Layer_2_8_8_main.iml" filepath="$PROJECT_DIR$/.idea/modules/layers/Layer_2_8_8/layers_Layer_2_8_8_main.iml" group="layers/Layer_2_8_8" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/layers/Layer_2_8_8/layers_Layer_2_8_8_test.iml" filepath="$PROJECT_DIR$/.idea/modules/layers/Layer_2_8_8/layers_Layer_2_8_8_test.iml" group="layers/Layer_2_8_8" />
+    </modules>
+  </component>
+</project>
