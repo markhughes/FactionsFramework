@@ -1,7 +1,6 @@
 main: me.markeh.factionsframework.FactionsFramework
 name: FactionsFramework
-version: @version@
-website: http://ma.rkhugh.es/factionsframework
-authors: [ MarkehMe ]
-description: §eFactionsFramework is an easy to use framework to build plugins for all versions of Factions. §aMarkehMe §eis the lead programmer. See §bhttp://ma.rkhugh.es/factionsframework§e for more information.
+version: 1.2.1
+authors: [ MarkehMe, ProSavage ]
+description: §eFactionsFramework is an easy to use framework to build plugins for all versions of Factions. §aMarkehMe §eis the orginal developer, but it is now updated by §aProSavage. §eSee §bhttps://github.com/ProSavage/FactionsFramework§e for more information.
 softdepend: [ Factions ]
