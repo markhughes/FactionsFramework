@@ -1,4 +1,4 @@
-#New Developer
+# New Developer
 
 Since Mark cannot continue with updating framework, I will be taking over and giving it all the love it needs. It is truly a great plugin!
 
