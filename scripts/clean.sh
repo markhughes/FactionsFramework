@@ -14,6 +14,7 @@ cleanProject () {
 }
 
 cleanProject "framework";
+cleanProject "layers/Layer_0_2_2";
 cleanProject "layers/Layer_1_6";
 cleanProject "layers/Layer_1_8";
 cleanProject "layers/Layer_2_6";
@@ -21,5 +22,6 @@ cleanProject "layers/Layer_2_7";
 cleanProject "layers/Layer_2_8_2";
 cleanProject "layers/Layer_2_8_6";
 cleanProject "layers/Layer_2_8_7";
+cleanProject "layers/Layer_2_14";
 
 gradle clean;

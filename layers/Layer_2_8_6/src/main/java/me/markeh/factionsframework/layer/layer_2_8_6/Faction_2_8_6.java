@@ -201,8 +201,7 @@ public class Faction_2_8_6 extends Messenger implements Faction {
 	
 	@Override
 	public Boolean isValid() {
-		if (this.faction == null) return false;
-		return true;
+		return this.faction != null;
 	}
 	
 	// -------------------------------------------------- //
