@@ -6,10 +6,6 @@ import me.markeh.factionsframework.enums.FactionsVersion;
 
 public abstract class ConfLayer {
 	
-	// -------------------------------------------------- //
-	// FETCH INSTANCE
-	// -------------------------------------------------- //
-	
 	private static ConfLayer layer = null;
 	public static ConfLayer get() {
 		if (layer == null) {
@@ -19,12 +15,14 @@ public abstract class ConfLayer {
 				} else {
 					if (FactionsVersion.get() == FactionsVersion.Factions_1_8) {
 						layer = (ConfLayer) Class.forName("me.markeh.factionsframework.layer.layer_1_8.Conf_1_8").newInstance();
-					} else {
+					} else if (FactionsVersion.get() == FactionsVersion.Factions_1_6) {
 						layer = (ConfLayer) Class.forName("me.markeh.factionsframework.layer.layer_1_6.Conf_1_6").newInstance();
+					} else if (FactionsVersion.get() == FactionsVersion.Factions_0_2_2) {
+						layer = (ConfLayer) Class.forName("me.markeh.factionsframework.layer.layer_0_2_2.Conf_0_2_2").newInstance();
 					}
 				}
-			} catch (Exception e) {
-				e.printStackTrace();
+			} catch (Exception ex) {
+				ex.printStackTrace();
 			}
 		}
 		return layer;
@@ -33,10 +31,6 @@ public abstract class ConfLayer {
 	public static void overrideConfLayer(ConfLayer confLayer) {
 		layer = confLayer;
 	}
-	
-	// -------------------------------------------------- //
-	// ABSTRACT METHODS
-	// -------------------------------------------------- //
 	
 	public abstract String getPrefixLeader();
 	public abstract String getPrefixOfficer();

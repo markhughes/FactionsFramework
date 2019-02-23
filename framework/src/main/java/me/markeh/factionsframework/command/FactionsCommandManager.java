@@ -16,6 +16,9 @@ public abstract class FactionsCommandManager implements Handler {
 		if (instance == null) {
 			try {
 				switch (FactionsVersion.get()) {
+					case Factions_0_2_2:
+						instance = (FactionsCommandManager) Class.forName("me.markeh.factionsframework.layer.layer_0_2_2.CommandManager_0_2_2").newInstance();
+						break;
 					case Factions_1_6 :
 						instance = (FactionsCommandManager) Class.forName("me.markeh.factionsframework.layer.layer_1_6.CommandManager_1_6").newInstance();
 						break;
@@ -38,11 +41,14 @@ public abstract class FactionsCommandManager implements Handler {
 					case Factions_2_8_8 :
 						instance = (FactionsCommandManager) Class.forName("me.markeh.factionsframework.layer.layer_2_8_8.CommandManager_2_8_8").newInstance();
 						break;
-					default :
 					case Factions_2_8_16 :
 						instance = (FactionsCommandManager) Class.forName("me.markeh.factionsframework.layer.layer_2_8_16.CommandManager_2_8_16").newInstance();
 //						FactionsFramework.get().log("[FactionsCommandManager] No CommandManager for version?");
 //						instance = null;
+						break;
+					default:
+					case Factions_2_14:
+						instance = (FactionsCommandManager) Class.forName("me.markeh.factionsframework.layer.layer_2_14.CommandManager_2_14").newInstance();
 						break;
 				}
 			} catch (Exception e) {

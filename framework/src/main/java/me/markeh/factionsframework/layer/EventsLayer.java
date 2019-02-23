@@ -20,6 +20,9 @@ public abstract class EventsLayer implements Listener {
 		if (layer == null) {
 			try {
 				switch (FactionsVersion.get()) {
+					case Factions_0_2_2:
+						layer = (EventsLayer) Class.forName("me.markeh.factionsframework.layer.layer_0_2_2.Events_0_2_2").newInstance();
+						break;
 					case Factions_1_6 :
 						layer = (EventsLayer) Class.forName("me.markeh.factionsframework.layer.layer_1_6.Events_1_6").newInstance();
 						break;
@@ -38,6 +41,9 @@ public abstract class EventsLayer implements Listener {
 					case Factions_2_8_8 :
 					case Factions_2_8_16 :
 						layer = (EventsLayer) Class.forName("me.markeh.factionsframework.layer.layer_2_8_6.Events_2_8_6").newInstance();
+						break;
+					case Factions_2_14:
+						layer = (EventsLayer) Class.forName("me.markeh.factionsframework.layer.layer_2_14.Events_2_14").newInstance();
 						break;
 				}
 			} catch (Exception e) {

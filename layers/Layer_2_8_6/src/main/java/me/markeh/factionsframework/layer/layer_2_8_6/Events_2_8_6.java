@@ -91,7 +91,7 @@ public class Events_2_8_6 extends EventsLayer {
 		Faction newFaction = Factions.getById(event.getNewFaction().getId());
 		FPlayer fplayer = FPlayers.getById(event.getMPlayer().getId());
 		
-		Set<Chunk> chunks = new HashSet<Chunk>();
+		Set<Chunk> chunks = new TreeSet<Chunk>();
 		
 		for (PS ps : event.getChunks()) {
 			Chunk chunk = ps.asBukkitChunk();

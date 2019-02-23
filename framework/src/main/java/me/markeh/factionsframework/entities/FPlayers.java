@@ -25,6 +25,9 @@ public abstract class FPlayers implements Handler {
 		if (fplayersInstance == null) {
 			try {
 				switch (FactionsVersion.get()) {
+					case Factions_0_2_2:
+						fplayersInstance = (FPlayers) Class.forName("me.markeh.factionsframework.layer.layer_0_2_2.FPlayers_0_2_2").newInstance();
+						break;
 					case Factions_1_6 :
 						fplayersInstance = (FPlayers) Class.forName("me.markeh.factionsframework.layer.layer_1_6.FPlayers_1_6").newInstance();
 						break;
@@ -41,6 +44,9 @@ public abstract class FPlayers implements Handler {
 					case Factions_2_8_8 :
 					case Factions_2_8_16 :
 						fplayersInstance = (FPlayers) Class.forName("me.markeh.factionsframework.layer.layer_2_8_6.FPlayers_2_8_6").newInstance();
+						break;
+					case Factions_2_14:
+						fplayersInstance = (FPlayers) Class.forName("me.markeh.factionsframework.layer.layer_2_14.FPlayers_2_14").newInstance();
 						break;
 				}
 			} catch (Exception e) {

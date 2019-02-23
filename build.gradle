@@ -117,14 +117,14 @@ bintray {
 	}
 	pkg {
 		repo = "maven"
-		name = "SavageFramework"
+		name = "FactionsFramework"
 		desc = ""
         userOrg = "redstoneore"
 		licenses = ["GPL-3.0"]
 		vcsUrl = "https://github.com/MarkehMe/FactionsFramework.git"
 		publicDownloadNumbers = false
 		version {
-			name = "SavageFramework-" + project.property("version");
+			name = "FactionsFramework-" + project.property("version");
 			desc = "Build a Factions plugin for every version of Factions and not have to worry about version upgrades and changes."
 			vcsTag = project.property("version")
 			attributes = ["gradle-plugin": "com.use.less:com.use.less.gradle:gradle-useless-plugin"]

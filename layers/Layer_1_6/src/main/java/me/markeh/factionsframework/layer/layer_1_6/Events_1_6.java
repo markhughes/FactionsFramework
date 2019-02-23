@@ -86,7 +86,7 @@ public class Events_1_6 extends EventsLayer {
 		
 		Chunk chunk = flocation.getWorld().getChunkAt(Math.toIntExact(flocation.getX()), Math.toIntExact(flocation.getZ()));
 		
-		Set<Chunk> chunks = new HashSet<Chunk>();
+		Set<Chunk> chunks = new TreeSet<Chunk>();
 		chunks.add(chunk);
 		
 		Faction newFaction = Factions.getById(event.getFaction().getId());
@@ -118,7 +118,7 @@ public class Events_1_6 extends EventsLayer {
 	@EventHandler
 	public void onEventFactionsChunksChange(LandUnclaimEvent event) {
 		// Prepare all our variables for the event 
-		Set<Chunk> chunks = new HashSet<Chunk>();
+		Set<Chunk> chunks = new TreeSet<Chunk>();
 		Chunk chunk = event.getLocation().getWorld().getChunkAt(Math.toIntExact(event.getLocation().getX()), Math.toIntExact(event.getLocation().getZ()));
 		chunks.add(chunk);
 		
@@ -153,7 +153,7 @@ public class Events_1_6 extends EventsLayer {
 	public void onEventFactionsChunksChange(LandUnclaimAllEvent event) {
 		// Grab all the information for the event 
 		Set<FLocation> flocations = event.getFaction().getAllClaims();
-		Set<Chunk> chunks = new HashSet<Chunk>();
+		Set<Chunk> chunks = new TreeSet<Chunk>();
 		
 		World world = null;
 		
