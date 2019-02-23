@@ -6,6 +6,7 @@ import me.markeh.factionsframework.FactionsFramework;
 
 public enum FactionsVersion {
 	
+	Factions_0_2_2,
 	Factions_1_6,
 	Factions_1_8,
 	Factions_2_6,
@@ -15,8 +16,7 @@ public enum FactionsVersion {
 	Factions_2_8_7,
 	Factions_2_8_8,
 	Factions_2_8_16,
-	
-	;
+	Factions_2_14;
 	
 	private static FactionsVersion versionCache = null;
 	public static FactionsVersion get() {
@@ -33,12 +33,20 @@ public enum FactionsVersion {
 		if (factionsVersion.startsWith("1.6.9.5-U")) {
 			// Factions UUID starts with '1.6.9.5-U', we only support the
 			// latest version of FactionsUUID
-			return Factions_1_6;
+			if (factionsVersion.startsWith("1.6.9.5-U0.1.6")) {
+				return Factions_1_6;
+			} else if (factionsVersion.startsWith("1.6.9.5-U0.2.2")) {
+				return Factions_0_2_2;
+			}
 		} else if (factionsVersion.startsWith("1.8")) {
 			return Factions_1_8;
 		} else if (factionsVersion.startsWith("2.")) {
 			// Is a 2.x variation, however there are lots of changes through these
 			// minor releases we can use to determine the version.
+			
+			if (factionsVersion.equals("2.14.0")) {
+				return Factions_2_14;
+			}
 			
 			// Factions >= 2.8.15 has new TypeDamageModifier
 			try {
@@ -84,7 +92,7 @@ public enum FactionsVersion {
 			return Factions_2_8_8;					
 		}
 		
-		throw new Error("Please use FactionsUUID (1.6.9.5-U), FactionsOne(1.8.x), or Factions 2.5+");
+		throw new Error("Please use FactionsUUID (1.6.9.5-U0.x), FactionsOne(1.8.x), or Factions 2.5+");
 	}
 
 	public boolean isAtLeast(FactionsVersion version) {
